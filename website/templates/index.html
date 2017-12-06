@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load render_bundle from webpack_loader %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+    <li class="active">{% trans "Home" %}</li>
+{% endblock %}
+
+{% block main %}
+    <div class="home-main-content">
+        <div id="HomeGallery"></div>
+        {% render_bundle 'vendors' %}
+        {% render_bundle 'HomeGallery' %}
+    </div>
+{% endblock %}

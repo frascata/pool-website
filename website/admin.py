@@ -36,6 +36,6 @@ class ProjectAdmin(ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Image)
+admin.site.register(Image)  # todo file path
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Project, ProjectAdmin)

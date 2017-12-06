@@ -37,4 +37,5 @@ tzlocal==1.4
 uritemplate==3.0.0
 urllib3==1.22
 webencodings==0.5.1
+django-webpack-loader==0.2.4
 

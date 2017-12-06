@@ -1,10 +1,9 @@
-
 from __future__ import absolute_import, unicode_literals
 import os
 
 from django import VERSION as DJANGO_VERSION
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-
 
 ######################
 # MEZZANINE SETTINGS #
@@ -85,7 +84,6 @@ from django.utils.translation import ugettext_lazy as _
 # INSTALLED_APPS setting.
 USE_MODELTRANSLATION = True
 
-
 ########################
 # MAIN DJANGO SETTINGS #
 ########################
@@ -136,7 +134,6 @@ AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 # The numeric mode to set newly-uploaded files to. The value should be
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
-
 
 #############
 # DATABASES #
@@ -200,7 +197,11 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(PROJECT_ROOT, "templates")
+            os.path.join(PROJECT_ROOT, "website", "templates"),
+            os.path.join(PROJECT_ROOT, "templates_admin"),
+            # os.path.join(PROJECT_ROOT, "grappelli_templates"),
+            os.path.join(PROJECT_ROOT, "templates_mezzanine"),
+
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -226,7 +227,6 @@ TEMPLATES = [
 if DJANGO_VERSION < (1, 9):
     del TEMPLATES[0]["OPTIONS"]["builtins"]
 
-
 ################
 # APPLICATIONS #
 ################
@@ -234,7 +234,6 @@ if DJANGO_VERSION < (1, 9):
 INSTALLED_APPS = (
     'mezzanine_api',
     'rest_framework',
-    'rest_framework_swagger',
     'oauth2_provider',
     'modeltranslation',
     "django.contrib.admin",
@@ -256,7 +255,8 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     # "mezzanine.accounts",
     # "mezzanine.mobile",
-    'website'
+    'website',
+    'webpack_loader',
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -328,12 +328,12 @@ f = os.path.join(PROJECT_APP_PATH, "local_settings.py")
 if os.path.exists(f):
     import sys
     import imp
+
     module_name = "%s.local_settings" % PROJECT_APP
     module = imp.new_module(module_name)
     module.__file__ = f
     sys.modules[module_name] = module
-    exec(open(f, "rb").read())
-
+    exec (open(f, "rb").read())
 
 ####################
 # DYNAMIC SETTINGS #

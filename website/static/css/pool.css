@@ -1,0 +1,297 @@
+/*
+#1d1d1b
+*/
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+#animatedLogo {
+    width: 200px;
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.main-content {
+    margin-top: 60px;
+    min-height: 600px;
+}
+
+a {
+    color: #777;
+}
+
+a:hover {
+    color: #1d1d1b;
+    text-decoration: none;
+}
+
+/*a {*/
+/*position: relative;*/
+/*color: #777;*/
+/*text-decoration: none;*/
+/*}*/
+/*a:hover {*/
+/*color: #1d1d1b;*/
+/*}*/
+/*a:before {*/
+/*content: "";*/
+/*position: absolute;*/
+/*width: 100%;*/
+/*height: 2px;*/
+/*bottom: 0;*/
+/*left: 0;*/
+/*background-color: #1d1d1b;*/
+/*visibility: hidden;*/
+/*-webkit-transform: scaleX(0);*/
+/*transform: scaleX(0);*/
+/*-webkit-transition: all 0.3s ease-in-out 0s;*/
+/*transition: all 0.3s ease-in-out 0s;*/
+/*}*/
+/*a:hover:before {*/
+/*visibility: visible;*/
+/*-webkit-transform: scaleX(1);*/
+/*transform: scaleX(1);*/
+/*}*/
+
+/* CUSTOM NAVBAR */
+.navbar-pool {
+    background-color: white;
+}
+
+.navbar-pool .navbar-brand {
+    color: #777;
+}
+
+.navbar-pool .navbar-brand:hover,
+.navbar-pool .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+
+.navbar-pool .navbar-text {
+    color: #777;
+}
+
+/*.navbar-pool .navbar-nav > li > a {*/
+/*color: #777;*/
+/*}*/
+
+.navbar-pool .navbar-nav > li > a {
+    position: relative;
+    color: #777;
+    text-decoration: none;
+}
+
+.navbar-pool .navbar-nav > li > a:hover,
+.navbar-pool .navbar-nav > li > a:focus {
+    color: #1d1d1b;
+    background: none;
+}
+
+.navbar-pool .navbar-nav > li > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #1d1d1b;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar-pool .navbar-nav > li > a:hover:before,
+.navbar-pool .navbar-nav > li > a:focus:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.navbar-pool .navbar-nav > li > a.social-icon {
+    padding-left: 4px;
+    padding-right: 16px;
+}
+
+/*.navbar-pool .navbar-nav > li > a:hover,*/
+/*.navbar-pool .navbar-nav > li > a:focus {*/
+/*color: #333;*/
+/*background-color: transparent;*/
+/*}*/
+
+.navbar-pool .navbar-nav > .active > a {
+    font-weight: bold;
+    color: #555;
+    border-bottom: 1px solid #1d1d1b;
+    padding-bottom: 14px;
+}
+
+.navbar-pool .navbar-nav > li > a.social-icon:before,
+.navbar-pool .navbar-nav > .active > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    bottom: 0;
+    left: 0;
+    background-color: #1d1d1b;
+    visibility: hidden;
+    -webkit-transform: none;
+    transform: none;
+    -webkit-transition: none;
+    transition: none;
+}
+
+.navbar-pool .navbar-nav > li > a.social-icon:hover:before,
+.navbar-pool .navbar-nav > li > a.social-icon:focus:before,
+.navbar-pool .navbar-nav > .active > a:hover:before,
+.navbar-pool .navbar-nav > .active > a:focus:before {
+    visibility: visible;
+    -webkit-transform: none;
+    transform: none;
+}
+
+/*.navbar-pool .navbar-nav > .active > a:hover,*/
+/*.navbar-pool .navbar-nav > .active > a:focus {*/
+/*!*color: #555;*!*/
+/*!*border-bottom: none;*!*/
+/*}*/
+
+.navbar-pool .navbar-nav > .disabled > a,
+.navbar-pool .navbar-nav > .disabled > a:hover,
+.navbar-pool .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.navbar-pool .navbar-toggle {
+    border-color: #ddd;
+}
+
+.navbar-pool .navbar-toggle:hover,
+.navbar-pool .navbar-toggle:focus {
+    background-color: #ddd;
+}
+
+.navbar-pool .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.navbar-pool .navbar-collapse,
+.navbar-pool .navbar-form {
+    border-color: #e7e7e7;
+}
+
+.navbar-pool .navbar-nav > .open > a,
+.navbar-pool .navbar-nav > .open > a:hover,
+.navbar-pool .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+@media (max-width: 767px) {
+    .main-content {
+        margin-bottom: 60px;
+    }
+
+    .navbar-brand {
+        text-align: center;
+        position: absolute;
+        left: 42%;
+        display: block;
+    }
+
+    .navbar-pool .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+
+    .navbar-pool .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-pool .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+
+    .navbar-pool .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-pool .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-pool .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #555;
+        background-color: #e7e7e7;
+    }
+
+    .navbar-pool .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-pool .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-pool .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
+
+    ul.nav.navbar-nav {
+        text-align: center;
+    }
+
+    .nav > li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+}
+
+.navbar-pool .navbar-link {
+    color: #777;
+}
+
+.navbar-pool .navbar-link:hover {
+    color: #333;
+}
+
+.navbar-pool .btn-link {
+    color: #777;
+}
+
+.navbar-pool .btn-link:hover,
+.navbar-pool .btn-link:focus {
+    color: #333;
+}
+
+.navbar-pool .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-pool .btn-link:hover,
+.navbar-pool .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-pool .btn-link:focus {
+    color: #ccc;
+}
+
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #777;
+    margin-top: 15px;
+    padding: 20px;
+    color: #777;
+}
+
+footer .btn-language,
+footer .btn-language:focus {
+    border: none;
+    outline: none;
+}
+
+footer .btn-language.selected {
+    font-weight: bold;
+    color: #1d1d1b;
+}
