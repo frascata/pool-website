@@ -20,3 +20,14 @@ export function fetchProjects() {
     );
   };
 }
+
+export const OPEN = 'OPEN';
+export const CLOSE = 'CLOSE';
+
+export function openProject() {
+  return {type: OPEN};
+}
+
+export function closeProject() {
+  return {type: CLOSE};
+}

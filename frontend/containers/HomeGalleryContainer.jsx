@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import * as projectActions from '../actions/projectActions';
 
-import ProjectGallery from '../components/ProjectGallery';
+import HomeProjectGallery from '../components/HomeProjectGallery';
 
 const Spinner = styled.div`
 .spinner {
@@ -94,7 +94,7 @@ export default class HomeGalleryContainer extends React.Component {
     if (this.props.projects.projects !== undefined) {
       return this.props.projects.projects.map((project) => {
         return <div className="col-md-6">
-          <ProjectGallery key={project.id} project={project}/>
+          <HomeProjectGallery key={project.id} project={project}/>
         </div>;
       });
     }

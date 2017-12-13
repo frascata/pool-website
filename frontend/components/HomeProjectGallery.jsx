@@ -1,8 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import * as projectActions from '../actions/projectActions';
-
 import { LazyLoadImage } from './LazyLoadImage';
 import styled from 'styled-components';
 
@@ -17,8 +13,7 @@ const Gallery = styled.div`
   }
 `;
 
-
-export default class ProjectGallery extends React.Component {
+export default class HomeProjectGallery extends React.Component {
   constructor(props) {
     super(props);
     this.imgGalleryElement = null;
@@ -83,7 +78,7 @@ export default class ProjectGallery extends React.Component {
             <Gallery className="project-gallery">
               <div ref={(imgGallery) => {
                 this.imgGalleryElement = imgGallery;
-              }}>
+              }} onClick={this.setActiveImage}>
                 <LazyLoadImage src={firstImageSrc}
                                alt={firstImageAlt}
                                transition={'opacity 1s ease-in-out'}
@@ -107,3 +102,4 @@ export default class ProjectGallery extends React.Component {
     return null;
   }
 }
+
