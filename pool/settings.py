@@ -156,7 +156,6 @@ DATABASES = {
     }
 }
 
-
 #########
 # PATHS #
 #########
@@ -226,6 +225,15 @@ TEMPLATES = [
 
 if DJANGO_VERSION < (1, 9):
     del TEMPLATES[0]["OPTIONS"]["builtins"]
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'website/bundles/local/',  # end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-local.json'),
+    }
+}
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ################
 # APPLICATIONS #
@@ -333,6 +341,7 @@ except ImportError:
 
 f = os.path.join(PROJECT_APP_PATH, "local_settings.py")
 if os.path.exists(f):
+    print('yes')
     import sys
     import imp
 
@@ -341,6 +350,11 @@ if os.path.exists(f):
     module.__file__ = f
     sys.modules[module_name] = module
     exec (open(f, "rb").read())
+
+else:
+    print('No local settings')
+    SECRET_KEY = os.environ['SECRET_KEY']
+    NEVERCACHE_KEY = os.environ['NEVERCACHE_KEY']
 
 ####################
 # DYNAMIC SETTINGS #
