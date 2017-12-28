@@ -200,6 +200,7 @@ TEMPLATES = [
             os.path.join(PROJECT_ROOT, "templates_admin"),
             # os.path.join(PROJECT_ROOT, "grappelli_templates"),
             os.path.join(PROJECT_ROOT, "templates_mezzanine"),
+            os.path.join(PROJECT_ROOT, "static"),
 
         ],
         "APP_DIRS": True,
