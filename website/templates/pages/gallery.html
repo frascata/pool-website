@@ -1,0 +1,57 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags staticfiles i18n %}
+
+{% block main %}
+    {{ block.super }}
+
+    {% editable page.gallery.content %}
+        <div class="project-gallery-description">
+            <div>
+
+                <span class="project-gallery-title">
+                    {{ page.gallery.title }}
+                </span>
+
+                <span class="project-gallery-subtitle">{{ page.gallery.project_date }} <span
+                        class="project-gallery-divider"> | </span> {{ page.gallery.project_location }}</span>
+
+                <button data-toggle="collapse" data-target="#collapse-{{ page.gallery.id }}" aria-expanded="false"
+                        aria-controls="collapse-{{ page.gallery.id }}">
+                    <span class="caret"></span>
+                </button>
+            </div>
+
+            <div class="collapse" id="collapse-{{ page.gallery.id }}">
+                <div class="card card-body project-gallery-content">
+
+                    <p>{{ page.gallery.content|richtext_filters|safe }}</p>
+
+
+                    <div class="project-gallery-partners">
+                        {% trans "in collaborazione con:" %}
+                        {% for partner in page.gallery.partner.all %}
+                            {{ partner.name }} {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endeditable %}
+
+    <div class="projet-gallery-images row">
+        {% with page.gallery.images.all as images %}
+            {% for image in images %}
+                <div class="col-xs-12 col-sm-12">
+                    {#                    <a class="thumbnail"#}
+                    {#                       rel="#image-{{ image.id }}"#}
+                    {#                       title="{{ image.description }}"#}
+                    {#                       href="{{ image.file.url }}">#}
+                    <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail image.file 131 75 %}">
+                    {#                    </a>#}
+                </div>
+            {% endfor %}
+        {% endwith %}
+    </div>
+{% endblock %}

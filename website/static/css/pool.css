@@ -59,7 +59,8 @@ a:hover {
 
 /* CUSTOM NAVBAR */
 .navbar-pool {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
 }
 
 .navbar-pool .navbar-brand {
@@ -185,7 +186,8 @@ a:hover {
 
 .navbar-pool .navbar-collapse,
 .navbar-pool .navbar-form {
-    border-color: #e7e7e7;
+    /*border-color: #e7e7e7;*/
+    border: none;
 }
 
 .navbar-pool .navbar-nav > .open > a,
@@ -193,6 +195,12 @@ a:hover {
 .navbar-pool .navbar-nav > .open > a:focus {
     color: #555;
     background-color: #e7e7e7;
+}
+
+.navbar-fixed-bottom {
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
 }
 
 @media (max-width: 767px) {
@@ -277,6 +285,74 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
     }
 }
 
+.project-item-url {
+    margin-right: 12px;
+    /*font-size: 14px;*/
+    /*position: absolute;*/
+    /*bottom: -3px;*/
+}
+
+/* PROJECTS */
+.project-gallery-description {
+    top: 50px;
+    position: fixed;
+    z-index: 1051;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    padding: 10px 0 14px 0;
+}
+
+.project-gallery-description .project-gallery-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.project-gallery-description .project-gallery-subtitle {
+    font-size: 16px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.project-gallery-description .project-gallery-divider {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.project-gallery-description .project-gallery-content {
+    padding-top: 2px;
+}
+
+.project-gallery-description .project-gallery-content p {
+    font-size: 18px;
+}
+
+.project-gallery-description button {
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+.projet-gallery-images {
+    margin-top: 60px;
+}
+
+.category-filters {
+    width: 100%;
+    margin: 6% 0 3% 0;
+    font-size: 18px;
+}
+
+.category-filters span {
+    padding: 0 2px 0 2px;
+}
+
+.category-filters .category-item {
+    cursor: pointer;
+}
+
+.category-filters .category-item.active {
+    color: #1d1d1b;
+}
 
 /* Footer */
 footer {

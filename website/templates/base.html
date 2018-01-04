@@ -130,7 +130,7 @@
     animatedLogoNode.style.display = 'none';
     mainNode.style.visibility = 'visible';
     mainNode.style.opacity = '1';
-    mainNode.style.transition = 'opacity 2s ease-in';
+    mainNode.style.transition = 'opacity 0s ease-in';
   }
 
   function showAnimatedLogo() {
@@ -141,7 +141,7 @@
       easing: 'easeInOutSine',
       duration: 1500,
       delay: function (el, i) {
-        return i * 250;
+        return i * 100;
       },
       direction: 'alternate',
       loop: 1,
