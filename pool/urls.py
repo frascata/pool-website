@@ -8,6 +8,7 @@ from django.views.i18n import set_language
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
+from website.views import ApiProjectsView, ApiCategoriesView
 
 admin.autodiscover()
 
@@ -27,9 +28,6 @@ if settings.USE_MODELTRANSLATION:
     ]
 
 urlpatterns += [
-    # REST API URLs
-    url("^api/", include("api.urls")),
-
     # We don't want to presume how your homepage works, so here are a
     # few patterns you can use to set it up.
 
@@ -75,6 +73,8 @@ urlpatterns += [
     # ``mezzanine.urls`` INCLUDES A *CATCH ALL* PATTERN
     # FOR PAGES, SO URLPATTERNS ADDED BELOW ``mezzanine.urls``
     # WILL NEVER BE MATCHED!
+    url("^api/projects/$", ApiProjectsView.as_view()),
+    url("^api/categories/$", ApiCategoriesView.as_view()),
 
     # If you'd like more granular control over the patterns in
     # ``mezzanine.urls``, go right ahead and take the parts you want

@@ -47,6 +47,8 @@ from django.utils.translation import ugettext_lazy as _
 #     (3, _("Footer"), "pages/menus/footer.html"),
 # )
 
+PAGE_MENU_TEMPLATES = ()
+
 # A sequence of fields that will be injected into Mezzanine's (or any
 # library's) models. Each item in the sequence is a four item sequence.
 # The first two items are the dotted path to the model and its field
@@ -75,6 +77,69 @@ from django.utils.translation import ugettext_lazy as _
 #         {"blank": True, "default": 1},
 #     ),
 # )
+
+EXTRA_MODEL_FIELDS = (
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.homepage_visible",
+        # Dotted path to field class.
+        "BooleanField",
+        # Positional args for field class.
+        (),
+        # Keyword args for field class.
+        {"default": False},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.project_location",
+        # Dotted path to field class.
+        "CharField",
+        # Positional args for field class.
+        (),
+        # Keyword args for field class.
+        {"max_length": 256, "null": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.project_date",
+        # Dotted path to field class.
+        "CharField",
+        # Positional args for field class.
+        (),
+        # Keyword args for field class.
+        {"max_length": 128, "null": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.category",
+        # Dotted path to field class.
+        "ManyToManyField",
+        # Positional args for field class.
+        ("website.Category",),
+        # Keyword args for field class.
+        {"verbose_name": _("Categories"), "blank": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.partner",
+        # Dotted path to field class.
+        "ManyToManyField",
+        # Positional args for field class.
+        ("website.Partner",),
+        # Keyword args for field class.
+        {"verbose_name": _("Partners"), "blank": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.phase",
+        # Dotted path to field class.
+        "ManyToManyField",
+        # Positional args for field class.
+        ("website.Phase",),
+        # Keyword args for field class.
+        {"verbose_name": _("Phases"), "blank": True},
+    ),
+)
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
@@ -106,13 +171,13 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "it"
 
 # Supported languages
 gettext = lambda s: s
 LANGUAGES = (
-    ('en', gettext('English')),
     ('it', gettext('Italian')),
+    ('en', gettext('English')),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -139,22 +204,23 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 # DATABASES #
 #############
 
-DATABASES = {
-    "default": {
-        # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
-        # DB name or path to database file if using sqlite3.
-        "NAME": "",
-        # Not used with sqlite3.
-        "USER": "",
-        # Not used with sqlite3.
-        "PASSWORD": "",
-        # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "",
-        # Set to empty string for default. Not used with sqlite3.
-        "PORT": "",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
+#         "ENGINE": "django.db.backends.",
+#         # DB name or path to database file if using sqlite3.
+#         "NAME": "",
+#         # Not used with sqlite3.
+#         "USER": "",
+#         # Not used with sqlite3.
+#         "PASSWORD": "",
+#         # Set to empty string for localhost. Not used with sqlite3.
+#         "HOST": "",
+#         # Set to empty string for default. Not used with sqlite3.
+#         "PORT": "",
+#     }
+# }
+
 
 #########
 # PATHS #
@@ -234,16 +300,11 @@ WEBPACK_LOADER = {
     }
 }
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 ################
 # APPLICATIONS #
 ################
 
 INSTALLED_APPS = (
-    'mezzanine_api',
-    'rest_framework',
-    'oauth2_provider',
     'modeltranslation',
     "django.contrib.admin",
     "django.contrib.auth",
@@ -255,7 +316,6 @@ INSTALLED_APPS = (
     # Disable Django's own staticfiles handling in favour of WhiteNoise, for
     # greater consistency between gunicorn and `./manage.py runserver`. See:
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
-    'whitenoise.runserver_nostatic',
     "django.contrib.staticfiles",
     "mezzanine.boot",
     "mezzanine.conf",
@@ -276,10 +336,7 @@ INSTALLED_APPS = (
 # these middleware classes will be applied in the order given, and in the
 # response phase the middleware will be applied in reverse order.
 MIDDLEWARE_CLASSES = (
-    'mezzanine_api.middleware.ApiMiddleware',
     "mezzanine.core.middleware.UpdateCacheMiddleware",
-
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     # Uncomment if using internationalisation or localisation
@@ -342,7 +399,6 @@ except ImportError:
 
 f = os.path.join(PROJECT_APP_PATH, "local_settings.py")
 if os.path.exists(f):
-    print('yes')
     import sys
     import imp
 
@@ -351,11 +407,6 @@ if os.path.exists(f):
     module.__file__ = f
     sys.modules[module_name] = module
     exec (open(f, "rb").read())
-
-else:
-    print('No local settings')
-    SECRET_KEY = os.environ['SECRET_KEY']
-    NEVERCACHE_KEY = os.environ['NEVERCACHE_KEY']
 
 ####################
 # DYNAMIC SETTINGS #

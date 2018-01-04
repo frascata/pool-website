@@ -92,6 +92,7 @@ export default class HomeProjectGallery extends React.Component {
           </div>
           <div className="col-xs-6">
             <div className="pull-right">
+              <a className="project-item-url" href={project.url}>+ info</a>
               {this.state.currentImageIndex} | {imagesNumber}
             </div>
           </div>

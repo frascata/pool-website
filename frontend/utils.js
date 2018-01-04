@@ -19,3 +19,17 @@ export function request(url, options, success, error400, error, failure) {
     }
   }).catch((ex) => { return failure(ex); });
 }
+
+export function getParams(query) {
+  if (!query) {
+    return { };
+  }
+
+  return (/^[?#]/.test(query) ? query.slice(1) : query)
+    .split('&')
+    .reduce((params, param) => {
+      let [ key, value ] = param.split('=');
+      params[key] = value ? decodeURIComponent(value.replace(/\+/g, ' ')) : '';
+      return params;
+    }, { });
+}

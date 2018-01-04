@@ -97,7 +97,8 @@ export default class ProjectGallery extends React.Component {
           </div>
           <div className="col-xs-6">
             <div className="pull-right">
-              {this.state.currentImageIndex} | {imagesNumber}
+              {/*{this.state.currentImageIndex} | {imagesNumber}*/}
+              { project.date } | { project.location }
             </div>
           </div>
         </div>

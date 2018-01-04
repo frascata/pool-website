@@ -8,7 +8,6 @@ export const FETCH_REPOS_FAILURE = 'FETCH_REPOS_FAILURE';
 
 export function fetchProjects() {
   return function (dispatch) {
-    // let url = 'https://api.github.com/users/mbrochh/repos';
     let url = `${process.env.BASE_API_URL}projects`;
     dispatch({type: FETCH_REPOS});
     return request(
@@ -21,13 +20,30 @@ export function fetchProjects() {
   };
 }
 
-export const OPEN = 'OPEN';
-export const CLOSE = 'CLOSE';
-
-export function openProject() {
-  return {type: OPEN};
+export function filterProjectsByCategory(categoryId) {
+  return function (dispatch) {
+    let url = `${process.env.BASE_API_URL}projects/?category=${categoryId}`;
+    dispatch({type: FETCH_REPOS});
+    return request(
+      url, {},
+      (json) => { dispatch({type: FETCH_REPOS_SUCCESS, res: json}); },
+      (json) => { dispatch({type: FETCH_REPOS_ERROR400, res: json}); },
+      (res) => { dispatch({type: FETCH_REPOS_ERROR500, res: res}); },
+      (ex) => { dispatch({type: FETCH_REPOS_FAILURE, error: ex}); },
+    );
+  };
 }
 
-export function closeProject() {
-  return {type: CLOSE};
+export function fetchHomeProjects() {
+  return function (dispatch) {
+    let url = `${process.env.BASE_API_URL}projects/?home=1`;
+    dispatch({type: FETCH_REPOS});
+    return request(
+      url, {},
+      (json) => { dispatch({type: FETCH_REPOS_SUCCESS, res: json}); },
+      (json) => { dispatch({type: FETCH_REPOS_ERROR400, res: json}); },
+      (res) => { dispatch({type: FETCH_REPOS_ERROR500, res: res}); },
+      (ex) => { dispatch({type: FETCH_REPOS_FAILURE, error: ex}); },
+    );
+  };
 }
