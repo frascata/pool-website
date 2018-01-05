@@ -346,6 +346,15 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
     padding-left: 0px;
 }
 
+/* NEWS */
+.news-main-content {
+    margin-top: 2%;
+}
+
+.news-item {
+    margin-bottom: 4%
+}
+
 /* Footer */
 footer {
     background: white;

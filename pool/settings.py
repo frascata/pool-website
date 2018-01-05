@@ -47,6 +47,8 @@ from django.utils.translation import ugettext_lazy as _
 #     (3, _("Footer"), "pages/menus/footer.html"),
 # )
 
+BLOG_SLUG = "news"
+
 PAGE_MENU_TEMPLATES = ()
 
 # A sequence of fields that will be injected into Mezzanine's (or any
@@ -143,7 +145,7 @@ EXTRA_MODEL_FIELDS = (
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
-# BLOG_USE_FEATURED_IMAGE = True
+BLOG_USE_FEATURED_IMAGE = True
 
 # If True, the django-modeltranslation will be added to the
 # INSTALLED_APPS setting.
