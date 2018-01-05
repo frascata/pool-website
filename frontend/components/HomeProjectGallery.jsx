@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Gallery = styled.div`
   cursor: pointer;
+  margin-bottom: 10px;
   
   img {
     display: none;
@@ -20,7 +21,7 @@ export default class HomeProjectGallery extends React.Component {
     this.state = {
       imgGallery: null,
       intervalId: 0,
-      currentImageIndex: 1
+      currentImageIndex: 1,
     };
 
     this.loadGallery = this.loadGallery.bind(this);
@@ -60,7 +61,7 @@ export default class HomeProjectGallery extends React.Component {
 
     for (let i = 0; i < this.imgGalleryElement.children.length; i++) {
       if (this.imgGalleryElement.children[i].classList.contains('active'))
-        this.setState({currentImageIndex: i+1});
+        this.setState({currentImageIndex: i + 1});
     }
   }
 
@@ -87,12 +88,16 @@ export default class HomeProjectGallery extends React.Component {
               </div>
             </Gallery>
           </div>
-          <div className="col-xs-6">
-            {project.title}
+          <div className="col-xs-4">
+              {project.title}
           </div>
-          <div className="col-xs-6">
-            <div className="pull-right">
+          <div className="col-xs-4">
+            <div style={{textAlign: "center"}}>
               <a className="project-item-url" href={project.url}>+ info</a>
+            </div>
+          </div>
+          <div className="col-xs-4">
+            <div className="pull-right">
               {this.state.currentImageIndex} | {imagesNumber}
             </div>
           </div>

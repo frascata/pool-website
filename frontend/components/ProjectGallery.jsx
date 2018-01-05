@@ -1,8 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import * as projectActions from '../actions/projectActions';
-
 import { LazyLoadImage } from './LazyLoadImage';
 import styled from 'styled-components';
 
@@ -12,11 +8,42 @@ const Gallery = styled.div`
   img {
     display: none;
   }
+  
   img.active {
     display: block;
   }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(255,255,255,0.9);
+  }
+  
+  :hover .overlay {
+    opacity: 1;
+  }
+  
+  .text {
+    color: #1d1d1b;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
 `;
 
+const GalleryItemTitle = styled.div`
+  margin-top: 5px;
+`;
 
 export default class ProjectGallery extends React.Component {
   constructor(props) {
@@ -25,7 +52,7 @@ export default class ProjectGallery extends React.Component {
     this.state = {
       imgGallery: null,
       intervalId: 0,
-      currentImageIndex: 1
+      currentImageIndex: 1,
     };
 
     this.loadGallery = this.loadGallery.bind(this);
@@ -65,8 +92,12 @@ export default class ProjectGallery extends React.Component {
 
     for (let i = 0; i < this.imgGalleryElement.children.length; i++) {
       if (this.imgGalleryElement.children[i].classList.contains('active'))
-        this.setState({currentImageIndex: i+1});
+        this.setState({currentImageIndex: i + 1});
     }
+  }
+
+  openProject(project) {
+    window.location.href = `${window.location.origin}/${project.url}`;
   }
 
   render() {
@@ -80,26 +111,39 @@ export default class ProjectGallery extends React.Component {
       return (
         <div className="row">
           <div className="col-md-12">
-            <Gallery className="project-gallery">
-              <div ref={(imgGallery) => {
-                this.imgGalleryElement = imgGallery;
-              }}>
-                <LazyLoadImage src={firstImageSrc}
-                               alt={firstImageAlt}
-                               transition={'opacity 1s ease-in-out'}
-                               className={'img-responsive active'}/>
-                {this.state.imgGallery}
+            <div className="row">
+              <div className="col-md-12">
+                <Gallery className="project-gallery">
+                  <div ref={(imgGallery) => {
+                    this.imgGalleryElement = imgGallery;
+                  }}>
+                    <LazyLoadImage src={firstImageSrc}
+                                   alt={firstImageAlt}
+                                   transition={'opacity 1s ease-in-out'}
+                                   className={'img-responsive active'}/>
+                    {this.state.imgGallery}
+                  </div>
+                  <div className="overlay">
+                    <div className="text">
+                      <a className="project-item-url"
+                         onClick={this.openProject.bind(this, project)}>+
+                        info</a>
+                    </div>
+                  </div>
+                </Gallery>
               </div>
-            </Gallery>
-          </div>
-          <div className="col-xs-6">
-            {project.title}
-          </div>
-          <div className="col-xs-6">
-            <div className="pull-right">
-              {/*{this.state.currentImageIndex} | {imagesNumber}*/}
-              { project.date } | { project.location }
             </div>
+            <GalleryItemTitle className="row">
+              <div className="col-xs-10">
+                {project.title}
+              </div>
+              <div className="col-xs-2">
+                <div className="pull-right">
+                  {/*{this.state.currentImageIndex} | {imagesNumber}*/}
+                  {project.date}
+                </div>
+              </div>
+            </GalleryItemTitle>
           </div>
         </div>
       );

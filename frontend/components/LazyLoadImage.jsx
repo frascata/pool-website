@@ -39,6 +39,7 @@ export class LazyLoadImage extends React.Component {
     if (transition) {
       lazyLoadingStyle = {
         opacity: 1,
+        margin: "0 auto",
         transition: transition // example 'opacity 1s ease-in-out'
       };
       if (this.state.lazyLoading) {
@@ -50,7 +51,11 @@ export class LazyLoadImage extends React.Component {
 
     return <img ref={(img) => {
       this.imgElement = img;
-    }} className={className} alt={alt} height={height} width={width}
+    }}
+                className={className}
+                alt={alt}
+                height={height}
+                width={width}
                 style={lazyLoadingStyle}/>;
   }
 }

@@ -59,18 +59,12 @@ export default class ProjectsGalleryContainer extends React.Component {
   }
 
   openProject(project) {
-    // if (this.state.selectedCategory) {
-    //   window.history.replaceState(null, window.location.href,
-    //     `${window.location.origin}${window.location.pathname}?category=${this.state.selectedCategory}`);
-    // }
     window.location.href = `${window.location.origin}/${project.url}`;
   }
 
   filterProject(categoryId) {
     let {dispatch} = this.props;
     this.setState({selectedCategory: categoryId});
-    // window.history.replaceState(null, window.location.href,
-    //   `${window.location.origin}${window.location.pathname}?category=${this.state.selectedCategory}`);
     return dispatch(projectActions.filterProjectsByCategory(categoryId));
   }
 

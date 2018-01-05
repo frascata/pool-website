@@ -85,7 +85,7 @@ EXTRA_MODEL_FIELDS = (
         # Dotted path to field class.
         "BooleanField",
         # Positional args for field class.
-        (),
+        (_("Homepage Visible"),),
         # Keyword args for field class.
         {"default": False},
     ),
@@ -95,7 +95,7 @@ EXTRA_MODEL_FIELDS = (
         # Dotted path to field class.
         "CharField",
         # Positional args for field class.
-        (),
+        (_("Project Location"),),
         # Keyword args for field class.
         {"max_length": 256, "null": True},
     ),
@@ -105,7 +105,7 @@ EXTRA_MODEL_FIELDS = (
         # Dotted path to field class.
         "CharField",
         # Positional args for field class.
-        (),
+        (_("Project Date"),),
         # Keyword args for field class.
         {"max_length": 128, "null": True},
     ),
@@ -117,7 +117,7 @@ EXTRA_MODEL_FIELDS = (
         # Positional args for field class.
         ("website.Category",),
         # Keyword args for field class.
-        {"verbose_name": _("Categories"), "blank": True},
+        {"verbose_name": _("Project Category"), "blank": True},
     ),
     (
         # Dotted path to field.
@@ -127,7 +127,7 @@ EXTRA_MODEL_FIELDS = (
         # Positional args for field class.
         ("website.Partner",),
         # Keyword args for field class.
-        {"verbose_name": _("Partners"), "blank": True},
+        {"verbose_name": _("Project Partner"), "blank": True},
     ),
     (
         # Dotted path to field.
@@ -137,7 +137,7 @@ EXTRA_MODEL_FIELDS = (
         # Positional args for field class.
         ("website.Phase",),
         # Keyword args for field class.
-        {"verbose_name": _("Phases"), "blank": True},
+        {"verbose_name": _("Project Phase"), "blank": True},
     ),
 )
 

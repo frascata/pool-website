@@ -24,8 +24,8 @@
 
     {% compress css %}
         <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-{#        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">#}
-{#        <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">#}
+        {#        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">#}
+        {#        <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">#}
         {% if LANGUAGE_BIDI %}
             <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
         {% endif %}
@@ -52,8 +52,6 @@
 <![endif]-->
 
     {% block extra_head %}{% endblock %}
-
-
 
 
 </head>
@@ -107,10 +105,6 @@
 <div class="main" style="visibility: hidden; opacity: 0;">
     {% include "blocks/header.html" %}
 
-    {#<div class="container">#}
-    {#    <h1>{% block title %}{% endblock %}</h1>#}
-    {#</div>#}
-
     <div class="container main-content">
         <div class="row">
             <div class="col-md-12 middle">
@@ -123,6 +117,7 @@
 </div>
 
 <script>
+  var SVG_COLOR = '#1d1d1b';
   var mainNode = document.querySelector('.main');
   var animatedLogoNode = document.querySelector('#animatedLogo');
 
@@ -130,7 +125,14 @@
     animatedLogoNode.style.display = 'none';
     mainNode.style.visibility = 'visible';
     mainNode.style.opacity = '1';
-    mainNode.style.transition = 'opacity 0s ease-in';
+    mainNode.style.transition = 'opacity 0.5s ease-in';
+  }
+
+  function fillAnimatedLogo() {
+    var svgPaths = animatedLogoNode.querySelectorAll('svg path');
+    for (var svgPath of svgPaths) {
+      svgPath.setAttribute('fill', SVG_COLOR);
+    }
   }
 
   function showAnimatedLogo() {
@@ -141,14 +143,16 @@
       easing: 'easeInOutSine',
       duration: 1500,
       delay: function (el, i) {
-        return i * 100;
+        return i * 150;
       },
-      direction: 'alternate',
+      direction: 'normal',
       loop: 1,
       complete: function () {
-        console.log('completed');
-        mainNode.style.display = 'block';
-        showHomePage();
+        fillAnimatedLogo();
+        setTimeout(function () {
+          mainNode.style.display = 'block';
+          showHomePage();
+        }, 200);
       },
     });
     Cookies.set('animation', '1', {expires: 7});

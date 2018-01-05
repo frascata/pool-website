@@ -25,8 +25,14 @@
             <div class="collapse" id="collapse-{{ page.gallery.id }}">
                 <div class="card card-body project-gallery-content">
 
-                    <p>{{ page.gallery.content|richtext_filters|safe }}</p>
+                    <div class="project-gallery-phases">
+                        {% for phase in page.gallery.phase.all %}
+                            {% if LANGUAGE_CODE == 'it' %}{{ phase.title_it }}{% else %}{{ phase.title_en }}{% endif %}
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
 
+                    <p>{{ page.gallery.content|richtext_filters|safe }}</p>
 
                     <div class="project-gallery-partners">
                         {% trans "in collaborazione con:" %}
@@ -41,17 +47,17 @@
     {% endeditable %}
 
     <div class="projet-gallery-images row">
-        {% with page.gallery.images.all as images %}
-            {% for image in images %}
-                <div class="col-xs-12 col-sm-12">
-                    {#                    <a class="thumbnail"#}
-                    {#                       rel="#image-{{ image.id }}"#}
-                    {#                       title="{{ image.description }}"#}
-                    {#                       href="{{ image.file.url }}">#}
-                    <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail image.file 131 75 %}">
-                    {#                    </a>#}
-                </div>
-            {% endfor %}
-        {% endwith %}
+        <div class="col-xs-12 col-sm-12">
+            {% with page.gallery.images.all as images %}
+                {% for image in images %}
+                    <div class="projet-gallery-item row">
+                        <div class="col-xs-12 col-sm-12">
+                            <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail image.file 131 75 %}"
+                                 title="{{ image.description }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endwith %}
+        </div>
     </div>
 {% endblock %}
