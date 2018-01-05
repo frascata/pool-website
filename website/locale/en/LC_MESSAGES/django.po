@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-05 17:58+0100\n"
+"POT-Creation-Date: 2018-01-05 19:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Project Phases"
 msgstr ""
 
-#: templates/base.html:139
+#: templates/base.html:140
 msgid "Cookie law message"
 msgstr ""
 "This website uses cookies to ensure you get the best experience on our "
@@ -55,41 +55,8 @@ msgstr ""
 msgid "Toggle Navigation"
 msgstr ""
 
-#: templates/blog/blog_post_detail.html:29
-msgid "Posted by"
-msgstr ""
-
-#: templates/blog/blog_post_detail.html:33
-#, python-format
-msgid "%(sometime)s ago"
-msgstr ""
-
-#: templates/blog/blog_post_detail.html:43
-msgid "Comments"
-msgstr ""
-
-#: templates/blog/blog_post_detail.html:46
-#, python-format
-msgid "%(comments_count)s comment"
-msgid_plural "%(comments_count)s comments"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/blog/blog_post_detail.html:74
-#: templates/blog/includes/filter_panel.html:56
-msgid "Tags"
-msgstr ""
-
-#: templates/blog/blog_post_detail.html:93
-msgid "Share on Twitter"
-msgstr ""
-
-#: templates/blog/blog_post_detail.html:94
-msgid "Share on Facebook"
-msgstr ""
-
-#: templates/blog/blog_post_detail.html:119
-msgid "Related posts"
+#: templates/blocks/menus/mobile_dropdown.html:17
+msgid "Contacts"
 msgstr ""
 
 #: templates/blog/blog_post_list.html:4 templates/blog/blog_post_list.html:22
@@ -108,40 +75,6 @@ msgid ""
 "                                        ago"
 msgstr ""
 
-#: templates/blog/includes/filter_panel.html:6
-msgid "Recent Posts"
-msgstr ""
-
-#: templates/blog/includes/filter_panel.html:27
-msgid "Archive"
-msgstr ""
-
-#: templates/blog/includes/filter_panel.html:43
-msgid "Categories"
-msgstr ""
-
-#: templates/blog/includes/filter_panel.html:72
-msgid "Authors"
-msgstr ""
-
-#: templates/blog/includes/filter_panel.html:84
-msgid "Feeds"
-msgstr ""
-
-#: templates/blog/includes/filter_panel.html:86
-#: templates/blog/includes/filter_panel.html:90
-#: templates/blog/includes/filter_panel.html:94
-#: templates/blog/includes/filter_panel.html:98
-msgid "RSS"
-msgstr ""
-
-#: templates/blog/includes/filter_panel.html:87
-#: templates/blog/includes/filter_panel.html:91
-#: templates/blog/includes/filter_panel.html:95
-#: templates/blog/includes/filter_panel.html:99
-msgid "Atom"
-msgstr ""
-
 #: templates/index.html:5 templates/index.html:6 templates/index.html:9
 #: templates/pages/menus/breadcrumb.html:4
 #: templates/pages/menus/breadcrumb.html:10
@@ -150,6 +83,10 @@ msgstr ""
 #: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
 #: templates/pages/menus/tree.html:9
 msgid "Home"
+msgstr ""
+
+#: templates/index.html:21
+msgid "Other Works"
 msgstr ""
 
 #: templates/pages/form.html:29

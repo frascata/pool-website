@@ -12,6 +12,32 @@
                     </li>
                 {% endif %}
             {% endfor %}
+            <li>
+                <a onclick="showContacts()">
+                    {% trans "Contacts" %}
+                </a>
+                <ul class="list-unstyled contacts-menu" style="display: none;">
+                        <li><a class="social-icon" href="https://www.facebook.com/poollandscape/"><i
+                                class="fa fa-facebook"
+                                aria-hidden="true"></i>
+                            facebook</a>
+                        </li>
+                        <li><a class="social-icon" href="https://www.instagram.com/poollandscape/"><i
+                                class="fa fa-instagram" aria-hidden="true"></i>
+                            instagram</a></li>
+                        <li><a class="social-icon" href="https://it.pinterest.com/pool_landscape/"><i
+                                class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            pinterest</li>
+                        <li><a class="social-icon" href="https://www.linkedin.com/company/11034879/"><i
+                                class="fa fa-linkedin" aria-hidden="true"></i>
+                            linkedin</a></li>
+
+                        <li><a class="social-icon" href="mailto:info@pool-landscape.it"><i class="fa fa-envelope"
+                                                                                           aria-hidden="true"></i>
+                            info@pool-landscape.it</a></li>
+                </ul>
+            </li>
         </ul>
     {% endif %}
 {% endspaceless %}
+

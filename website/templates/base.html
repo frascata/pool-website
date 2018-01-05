@@ -20,7 +20,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/favicon-16x16.png" %}">
     <link rel="mask-icon" href="{% static "img/safari-pinned-tab.svg" %}" color="#5bbad5">
 
-    <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
 
     {% compress css %}
         <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
@@ -116,81 +116,92 @@
     {% include "blocks/footer.html" %}
 </div>
 
-<script>
-  var SVG_COLOR = '#1d1d1b';
-  var mainNode = document.querySelector('.main');
-  var animatedLogoNode = document.querySelector('#animatedLogo');
-
-  function showCookieLawMessage() {
-    window.cookieconsent.initialise({
-      'palette': {
-        'popup': {
-          'background': '#1d1d1b',
-        },
-        'button': {
-          'background': 'transparent',
-          'border': '#ffffff',
-          'text': '#ffffff',
-        },
-      },
-      'showLink': false,
-      'position': 'bottom',
-      'content': {
-        'message': '{% trans "Cookie law message" %}',
-        'dismiss': 'ok',
-        'href': '/'
-      },
-    });
-  }
-
-  function showHomePage() {
-    showCookieLawMessage();
-
-    animatedLogoNode.style.display = 'none';
-    mainNode.style.visibility = 'visible';
-    mainNode.style.opacity = '1';
-    mainNode.style.transition = 'opacity 0.5s ease-in';
-  }
-
-  function fillAnimatedLogo() {
-    var svgPaths = animatedLogoNode.querySelectorAll('svg path');
-    for (var svgPath of svgPaths) {
-      svgPath.setAttribute('fill', SVG_COLOR);
-    }
-  }
-
-  function showAnimatedLogo() {
-    animatedLogoNode.style.display = 'block';
-    anime({
-      targets: '#animatedLogo .lines path',
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: 'easeInOutSine',
-      duration: 1500,
-      delay: function (el, i) {
-        return i * 150;
-      },
-      direction: 'normal',
-      loop: 1,
-      complete: function () {
-        fillAnimatedLogo();
-        setTimeout(function () {
-          mainNode.style.display = 'block';
-          showHomePage();
-        }, 200);
-      },
-    });
-    Cookies.set('animation', '1', {expires: 7});
-  }
-
-  var animationCookie = Cookies.get('animation');
-  if (animationCookie && animationCookie === '1') {
-    showHomePage();
-  } else {
-    showAnimatedLogo();
-  }
-</script>
-
 {% block footer_js %}
+    <script>
+      var SVG_COLOR = '#1d1d1b';
+      var mainNode = document.querySelector('.main');
+      var animatedLogoNode = document.querySelector('#animatedLogo');
+
+      function showCookieLawMessage() {
+        window.cookieconsent.initialise({
+          'palette': {
+            'popup': {
+              'background': '#1d1d1b',
+            },
+            'button': {
+              'background': 'transparent',
+              'border': '#ffffff',
+              'text': '#ffffff',
+            },
+          },
+          'showLink': false,
+          'position': 'bottom',
+          'content': {
+            'message': '{% trans "Cookie law message" %}',
+            'dismiss': 'ok',
+            'href': '/',
+          },
+        });
+      }
+
+      function showHomePage() {
+        showCookieLawMessage();
+
+        animatedLogoNode.style.display = 'none';
+        mainNode.style.visibility = 'visible';
+        mainNode.style.opacity = '1';
+        mainNode.style.transition = 'opacity 0.5s ease-in';
+      }
+
+      function fillAnimatedLogo() {
+        var svgPaths = animatedLogoNode.querySelectorAll('svg path');
+        for (var svgPath of svgPaths) {
+          svgPath.setAttribute('fill', SVG_COLOR);
+        }
+      }
+
+      function showAnimatedLogo() {
+        animatedLogoNode.style.display = 'block';
+        anime({
+          targets: '#animatedLogo .lines path',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: 'easeInOutSine',
+          duration: 1500,
+          delay: function (el, i) {
+            return i * 150;
+          },
+          direction: 'normal',
+          loop: 1,
+          complete: function () {
+            fillAnimatedLogo();
+            setTimeout(function () {
+              mainNode.style.display = 'block';
+              showHomePage();
+            }, 200);
+          },
+        });
+        Cookies.set('animation', '1', {expires: 7});
+      }
+
+      var animationCookie = Cookies.get('animation');
+      if (animationCookie && animationCookie === '1') {
+        showHomePage();
+      } else {
+        showAnimatedLogo();
+      }
+    </script>
+
+    <script>
+      function showContacts() {
+        var contactsMenu = document.querySelector('.contacts-menu');
+        if (contactsMenu.style.display == 'block') {
+          contactsMenu.style.display = 'none';
+        } else {
+          contactsMenu.style.display = 'block';
+        }
+      }
+    </script>
+
     {% include "includes/footer_scripts.html" %}
 {% endblock %}
 
