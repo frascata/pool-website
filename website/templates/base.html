@@ -31,6 +31,7 @@
         {% endif %}
         {% block extra_css %}
             <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+            <link rel="stylesheet" href="{% static "css/cookieconsent.min.css" %}">
             <link rel="stylesheet" href="{% static "css/pool.css" %}">
         {% endblock %}
     {% endcompress %}
@@ -42,7 +43,7 @@
         {% block extra_js %}
             <script src="{% static "js/anime.js" %}"></script>
             <script src="{% static "js/js.cookie.min.js" %}"></script>
-
+            <script src="{% static "js/cookieconsent.min.js" %}"></script>
         {% endblock %}
     {% endcompress %}
 
@@ -52,7 +53,6 @@
 <![endif]-->
 
     {% block extra_head %}{% endblock %}
-
 
 </head>
 
@@ -121,7 +121,31 @@
   var mainNode = document.querySelector('.main');
   var animatedLogoNode = document.querySelector('#animatedLogo');
 
+  function showCookieLawMessage() {
+    window.cookieconsent.initialise({
+      'palette': {
+        'popup': {
+          'background': '#1d1d1b',
+        },
+        'button': {
+          'background': 'transparent',
+          'border': '#ffffff',
+          'text': '#ffffff',
+        },
+      },
+      'showLink': false,
+      'position': 'bottom',
+      'content': {
+        'message': '{% trans "Cookie law message" %}',
+        'dismiss': 'ok',
+        'href': '/'
+      },
+    });
+  }
+
   function showHomePage() {
+    showCookieLawMessage();
+
     animatedLogoNode.style.display = 'none';
     mainNode.style.visibility = 'visible';
     mainNode.style.opacity = '1';

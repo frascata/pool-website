@@ -21,6 +21,10 @@ body {
     margin-bottom: 60px;
 }
 
+.cc-window.cc-banner {
+    font-size: 14px;
+}
+
 a {
     color: #777;
 }
@@ -312,6 +316,7 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
 .projet-gallery-images {
     margin-top: 60px;
 }
+
 .projet-gallery-item {
     margin-top: 1%;
     margin-bottom: 1%;
