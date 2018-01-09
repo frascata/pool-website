@@ -46,6 +46,8 @@ class ApiProjectsView(ListView):
 
             categories = [category.title(current_language) for category in project.category.get_queryset()]
 
+            preview_image = project.featured_image.url
+
             images = []
             for image in project.images.get_queryset():
                 image_description = None
@@ -67,6 +69,7 @@ class ApiProjectsView(ListView):
                 "location": project.project_location,
                 "date": project.project_date,
                 "categories": categories,
+                "previewImage": preview_image,
                 "images": images,
                 "url": project.slug
             })

@@ -141,6 +141,18 @@ EXTRA_MODEL_FIELDS = (
         # Keyword args for field class.
         {"verbose_name": _("Project Phase"), "blank": True},
     ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.featured_image",
+        # Dotted path to field class.
+        "mezzanine.core.fields.FileField",
+        # Positional args for field class.
+        (),
+        # Keyword args for field class.
+        {"verbose_name": _("Featured Image"),
+         "format": "Image", "max_length": 255,
+         "null": True, "blank": True},
+    ),
 )
 
 # Setting to turn on featured images for blog posts. Defaults to False.
@@ -157,7 +169,7 @@ USE_MODELTRANSLATION = True
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pool.vivaifrappi.com']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -295,10 +307,14 @@ TEMPLATES = [
 if DJANGO_VERSION < (1, 9):
     del TEMPLATES[0]["OPTIONS"]["builtins"]
 
+###########
+# WEBPACK #
+###########
+
 WEBPACK_LOADER = {
     'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'website/bundles/local/',  # end with slash
-        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-local.json'),
+        'BUNDLE_DIR_NAME': 'website/bundles/prod/',  # end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-prod.json'),
     }
 }
 

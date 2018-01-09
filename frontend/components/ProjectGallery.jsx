@@ -104,8 +104,8 @@ export default class ProjectGallery extends React.Component {
     const {project} = this.props;
     const images = project.images;
     if (project.images && project.images.length > 0) {
-      const firstImageSrc = images[0]['src'];
-      const firstImageAlt = images[0]['title'];
+      const firstImageSrc = project.previewImage || images[0]['src'];
+      const firstImageAlt = project.previewImage || images[0]['title'];
       const imagesNumber = project.images.length;
 
       return (

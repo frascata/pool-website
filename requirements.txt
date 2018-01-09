@@ -6,6 +6,7 @@ Django==1.10.8
 django-contrib-comments==1.8.0
 django-modeltranslation==0.12.1
 django-webpack-loader==0.5.0
+fabric
 filebrowser-safe==0.4.7
 future==0.16.0
 grappelli-safe==0.4.7
