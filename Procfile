@@ -1,1 +1,0 @@
-web: gunicorn pool.wsgi --log-file -

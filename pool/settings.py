@@ -278,10 +278,8 @@ TEMPLATES = [
         "DIRS": [
             os.path.join(PROJECT_ROOT, "website", "templates"),
             os.path.join(PROJECT_ROOT, "templates_admin"),
-            # os.path.join(PROJECT_ROOT, "grappelli_templates"),
             os.path.join(PROJECT_ROOT, "templates_mezzanine"),
             os.path.join(PROJECT_ROOT, "static"),
-
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -313,7 +311,7 @@ if DJANGO_VERSION < (1, 9):
 
 WEBPACK_LOADER = {
     'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'website/bundles/prod/',  # end with slash
+        'BUNDLE_DIR_NAME': 'bundles/prod/',  # end with slash
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-prod.json'),
     }
 }
