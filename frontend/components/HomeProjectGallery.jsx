@@ -2,12 +2,19 @@ import React from 'react';
 import { LazyLoadImage } from './LazyLoadImage';
 import styled from 'styled-components';
 
+const Div = styled.div`
+  margin-top: 1%;
+  margin-bottom: 2%;
+  min-height: 500px;
+`;
+
 const Gallery = styled.div`
   cursor: pointer;
   margin-bottom: 10px;
   
   img {
     display: none;
+    margin: 0 auto;
   }
   img.active {
     display: block;
@@ -74,7 +81,7 @@ export default class HomeProjectGallery extends React.Component {
       const imagesNumber = project.images.length;
 
       return (
-        <div className="row">
+        <Div className="row">
           <div className="col-md-12">
             <Gallery className="project-gallery">
               <div ref={(imgGallery) => {
@@ -101,7 +108,7 @@ export default class HomeProjectGallery extends React.Component {
               {this.state.currentImageIndex} | {imagesNumber}
             </div>
           </div>
-        </div>
+        </Div>
       );
     }
 
