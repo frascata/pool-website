@@ -63,4 +63,10 @@ server {
         log_not_found   off;
     }
 
+    location /manifest.json {
+        root            %(proj_path)s/static;
+        access_log      off;
+        log_not_found   off;
+    }
+
 }
