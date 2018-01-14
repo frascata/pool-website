@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import Cookies from 'js-cookie';
 
 export function request(url, options, success, error400, error, failure) {
   let headers = new Headers();
@@ -32,4 +33,12 @@ export function getParams(query) {
       params[key] = value ? decodeURIComponent(value.replace(/\+/g, ' ')) : '';
       return params;
     }, { });
+}
+
+export function getLanguage() {
+  let language = Cookies.get('pool_language');
+  if (language) {
+    return language;
+  }
+  return 'it';
 }

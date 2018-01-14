@@ -194,6 +194,8 @@ LANGUAGES = (
     ('en', gettext('English')),
 )
 
+LANGUAGE_COOKIE_NAME = 'pool_language'
+
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
@@ -311,6 +313,7 @@ if DJANGO_VERSION < (1, 9):
 
 WEBPACK_LOADER = {
     'DEFAULT': {
+        'CACHE': True,
         'BUNDLE_DIR_NAME': 'bundles/prod/',  # end with slash
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-prod.json'),
     }

@@ -1,11 +1,56 @@
 import json
+
+from django import http
 from django.conf import settings
 from django.http import HttpResponse
-from django.utils.translation import get_language
+from django.urls import translate_url
+from django.utils.http import is_safe_url, urlunquote
+from django.utils.translation import (
+    LANGUAGE_SESSION_KEY, check_for_language, )
 from django.views.generic import ListView
 from mezzanine.galleries.models import Gallery
 
 from website.models import Category
+
+LANGUAGE_QUERY_PARAMETER = 'language'
+
+
+def set_language(request):
+    """
+    Redirect to a given url while setting the chosen language in the
+    session or cookie. The url and the language code need to be
+    specified in the request parameters.
+
+    Since this view changes how the user will see the rest of the site, it must
+    only be accessed as a POST request. If called as a GET request, it will
+    redirect to the page in the request (the 'next' parameter) without changing
+    any state.
+    """
+    next = request.POST.get('next', request.GET.get('next'))
+    if (next or not request.is_ajax()) and not is_safe_url(url=next, host=request.get_host()):
+        next = request.META.get('HTTP_REFERER')
+        if next:
+            next = urlunquote(next)  # HTTP_REFERER may be encoded.
+        if not is_safe_url(url=next, host=request.get_host()):
+            next = '/'
+    response = http.HttpResponseRedirect(next) if next else http.HttpResponse(status=204)
+    if request.method == 'POST':
+        lang_code = request.POST.get(LANGUAGE_QUERY_PARAMETER)
+        if lang_code and check_for_language(lang_code):
+            if next:
+                next_trans = translate_url(next, lang_code)
+                if next_trans != next:
+                    response = http.HttpResponseRedirect(next_trans)
+            if hasattr(request, 'session'):
+                request.session[LANGUAGE_SESSION_KEY] = lang_code
+
+            response.set_cookie(
+                settings.LANGUAGE_COOKIE_NAME, lang_code,
+                max_age=settings.LANGUAGE_COOKIE_AGE,
+                path=settings.LANGUAGE_COOKIE_PATH,
+                domain=settings.LANGUAGE_COOKIE_DOMAIN,
+            )
+    return response
 
 
 class ApiProjectsView(ListView):
@@ -19,6 +64,8 @@ class ApiProjectsView(ListView):
         if not settings.DEBUG:
             projects = projects.filter(status__exact=2)
 
+        current_language = self.request.GET.get('language', settings.LANGUAGE_CODE)
+
         home_visible = self.request.GET.get('home')
         if home_visible and home_visible in ['1', 'true']:
             projects = projects.filter(homepage_visible=True)
@@ -27,7 +74,6 @@ class ApiProjectsView(ListView):
         if category and category not in ['null']:
             projects = projects.filter(category__id__exact=int(category))
 
-        current_language = get_language()
         response_data = list()
 
         for project in projects:
@@ -46,7 +92,11 @@ class ApiProjectsView(ListView):
 
             categories = [category.title(current_language) for category in project.category.get_queryset()]
 
-            preview_image = project.featured_image.url
+            try:
+                preview_image = project.featured_image.url
+            except Exception as exc:
+                print(exc)
+                preview_image = None
 
             images = []
             for image in project.images.get_queryset():
@@ -84,7 +134,7 @@ class ApiCategoriesView(ListView):
 
         categories = self.get_queryset()
 
-        current_language = get_language()
+        current_language = self.request.GET.get('language', settings.LANGUAGE_CODE)
 
         title = None
         if current_language == 'it':

@@ -1,4 +1,4 @@
-import { request } from '../utils';
+import { getLanguage, request } from '../utils';
 
 export const FETCH_REPOS = 'FETCH_REPOS';
 export const FETCH_REPOS_SUCCESS = 'FETCH_REPOS_SUCCESS';
@@ -8,7 +8,7 @@ export const FETCH_REPOS_FAILURE = 'FETCH_REPOS_FAILURE';
 
 export function fetchProjects() {
   return function (dispatch) {
-    let url = `${process.env.BASE_API_URL}projects`;
+    let url = `${process.env.BASE_API_URL}projects/?language=${getLanguage()}`;
     dispatch({type: FETCH_REPOS});
     return request(
       url, {},
@@ -22,7 +22,7 @@ export function fetchProjects() {
 
 export function filterProjectsByCategory(categoryId) {
   return function (dispatch) {
-    let url = `${process.env.BASE_API_URL}projects/?category=${categoryId}`;
+    let url = `${process.env.BASE_API_URL}projects/?category=${categoryId}&language=${getLanguage()}`;
     dispatch({type: FETCH_REPOS});
     return request(
       url, {},
@@ -36,7 +36,7 @@ export function filterProjectsByCategory(categoryId) {
 
 export function fetchHomeProjects() {
   return function (dispatch) {
-    let url = `${process.env.BASE_API_URL}projects/?home=1`;
+    let url = `${process.env.BASE_API_URL}projects/?home=1&language=${getLanguage()}`;
     dispatch({type: FETCH_REPOS});
     return request(
       url, {},
