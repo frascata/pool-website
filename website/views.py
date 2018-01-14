@@ -10,7 +10,7 @@ from django.utils.translation import (
 from django.views.generic import ListView
 from mezzanine.galleries.models import Gallery
 
-from website.models import Category
+from website.models import Category, Partner
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
@@ -95,7 +95,6 @@ class ApiProjectsView(ListView):
             try:
                 preview_image = project.featured_image.url
             except Exception as exc:
-                print(exc)
                 preview_image = None
 
             images = []
@@ -160,6 +159,46 @@ class ApiCategoriesView(ListView):
             response_data.append({
                 "id": category.id,
                 "title": title
+            })
+
+        return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+class ApiPartnersView(ListView):
+    model = Partner
+
+    def get(self, *args, **kwargs):
+
+        partners = self.get_queryset()
+
+        current_language = self.request.GET.get('language', settings.LANGUAGE_CODE)
+
+        partner_type = self.request.GET.get('type')
+        if partner_type and partner_type in ['partner', 'collaborator']:
+            partners = partners.filter(type__iexact=partner_type)
+
+        response_data = []
+
+        for partner in partners:
+            description = None
+
+            if current_language == 'it':
+                if partner.description_it:
+                    description = partner.description_it
+            if current_language == 'en':
+                if partner.description_en:
+                    description = partner.description_en
+
+            try:
+                website_url = partner.website_url
+            except Exception as exc:
+                website_url = None
+
+            response_data.append({
+                "id": partner.id,
+                "name": partner.name,
+                "description": description,
+                "url": website_url
             })
 
         return HttpResponse(json.dumps(response_data), content_type="application/json")

@@ -7,7 +7,7 @@ from django.contrib import admin
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
-from website.views import ApiProjectsView, ApiCategoriesView, set_language
+from website.views import ApiProjectsView, ApiCategoriesView, set_language, ApiPartnersView
 
 admin.autodiscover()
 
@@ -74,6 +74,7 @@ urlpatterns += [
     # WILL NEVER BE MATCHED!
     url("^api/projects/$", ApiProjectsView.as_view()),
     url("^api/categories/$", ApiCategoriesView.as_view()),
+    url("^api/partners/$", ApiPartnersView.as_view()),
 
     # If you'd like more granular control over the patterns in
     # ``mezzanine.urls``, go right ahead and take the parts you want
