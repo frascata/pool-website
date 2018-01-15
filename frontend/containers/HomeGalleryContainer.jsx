@@ -20,7 +20,6 @@ export default class HomeGalleryContainer extends React.Component {
     return (
       <div className="row">
         <div className="col-sm-12">
-          Loading ...
         </div>
       </div>
     );

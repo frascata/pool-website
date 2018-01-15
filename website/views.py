@@ -94,7 +94,7 @@ class ApiProjectsView(ListView):
 
             try:
                 preview_image = project.featured_image.url
-            except Exception as exc:
+            except ValueError:
                 preview_image = None
 
             images = []
@@ -191,7 +191,7 @@ class ApiPartnersView(ListView):
 
             try:
                 website_url = partner.website_url
-            except Exception as exc:
+            except ValueError:
                 website_url = None
 
             response_data.append({

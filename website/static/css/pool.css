@@ -3,6 +3,7 @@
 */
 body {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
     color: #777;
 }
 
@@ -316,8 +317,8 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
     /*bottom: -3px;*/
 }
 
-/* PROJECTS */
-.project-gallery-description {
+/* PROJECTS DETAIL */
+.project-detail-gallery-description {
     top: 50px;
     position: fixed;
     z-index: 1051;
@@ -326,48 +327,52 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
     padding: 10px 0 14px 0;
 }
 
-.project-gallery-description .project-gallery-title {
+.project-detail-gallery-description .project-detail-gallery-title {
     color: #1d1d1b;
     font-weight: bold;
     font-size: 20px;
 }
 
-.project-gallery-description .project-gallery-subtitle {
+.project-detail-gallery-description .project-detail-gallery-subtitle {
     font-size: 16px;
     padding-left: 2%;
     padding-right: 2%;
 }
 
-.project-gallery-description .project-gallery-divider {
+.project-detail-gallery-description .project-detail-gallery-divider {
     padding-left: 2px;
     padding-right: 2px;
 }
 
-.project-gallery-description .project-gallery-content {
+.project-detail-gallery-description .project-detail-gallery-content {
     padding-top: 2px;
 }
 
-.project-gallery-description .project-gallery-content p {
+.project-detail-gallery-description .project-detail-gallery-content p {
     font-size: 14px;
 }
 
-.project-gallery-description .project-gallery-content .project-gallery-phases {
+.project-detail-gallery-description .project-detail-gallery-content .project-detail-gallery-phases {
     margin-top: 4px;
 }
 
-.project-gallery-description button {
+.project-detail-gallery-description button {
     outline: none;
     border: none;
     background-color: white;
 }
 
-.projet-gallery-images {
+.project-detail-gallery-images {
     margin-top: 60px;
 }
 
-.projet-gallery-item {
-    margin-top: 1%;
-    margin-bottom: 1%;
+.project-detail-gallery-item {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.project-detail-gallery-item img {
+    margin: 0 auto;
 }
 
 .category-filters {
@@ -378,6 +383,7 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
 
 .category-filters span {
     padding: 0 2px 0 2px;
+    text-transform: lowercase;
 }
 
 .category-filters .category-item {
