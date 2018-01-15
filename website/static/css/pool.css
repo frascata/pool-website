@@ -290,6 +290,25 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
     zoom: 1.2;
 }
 
+/*.project-gallery {*/
+/*width: 400px;*/
+/*height: 400px;*/
+/*}*/
+.project-item-square {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100%;
+}
+
+.project-item-square img {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 .project-item-url {
     margin-right: 12px;
     /*font-size: 14px;*/

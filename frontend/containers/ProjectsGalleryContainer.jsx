@@ -6,7 +6,6 @@ import * as projectActions from '../actions/projectActions';
 import * as categoryActions from '../actions/categoryActions';
 
 import ProjectGallery from '../components/ProjectGallery';
-import ProjectDetail from '../components/ProjectDetail';
 import { getParams } from '../utils';
 
 @connect(state => ({
@@ -71,7 +70,7 @@ export default class ProjectsGalleryContainer extends React.Component {
   renderProjects() {
     if (this.props.projects.items !== undefined) {
       return this.props.projects.items.map((project) => {
-        return <div className="col-md-4" key={project.id}
+        return <div className="col-xs-12 col-sm-6 col-md-4 col-lg-2" key={project.id}
                     onClick={this.openProject.bind(this, project)}>
           <ProjectGallery key={project.id} project={project}/>
         </div>;

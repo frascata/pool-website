@@ -106,14 +106,14 @@ export default class ProjectGallery extends React.Component {
     if (project.images && project.images.length > 0) {
       const firstImageSrc = project.previewImage || images[0]['src'];
       const firstImageAlt = project.previewImage || images[0]['title'];
-      const imagesNumber = project.images.length;
+      // const imagesNumber = project.images.length;
 
       return (
         <div className="row">
           <div className="col-md-12">
             <div className="row">
               <div className="col-md-12">
-                <Gallery className="project-gallery">
+                <Gallery className="project-gallery project-item-square">
                   <div ref={(imgGallery) => {
                     this.imgGalleryElement = imgGallery;
                   }}>
@@ -137,12 +137,12 @@ export default class ProjectGallery extends React.Component {
               <div className="col-xs-10">
                 {project.title}
               </div>
-              <div className="col-xs-2">
-                <div className="pull-right">
-                  {/*{this.state.currentImageIndex} | {imagesNumber}*/}
-                  {project.date}
-                </div>
-              </div>
+              {/*<div className="col-xs-2">*/}
+                {/*<div className="pull-right">*/}
+                  {/*/!*{this.state.currentImageIndex} | {imagesNumber}*!/*/}
+                  {/*{project.date}*/}
+                {/*</div>*/}
+              {/*</div>*/}
             </GalleryItemTitle>
           </div>
         </div>
