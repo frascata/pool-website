@@ -1,0 +1,38 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags %}
+
+{% block main %}{{ block.super }}
+
+    {% editable page.richtextpage.content %}
+        <div class="about-main-content">
+            {{ page.richtextpage.content|richtext_filters|safe }}
+
+            {#            <h4><strong>Elisa Frappi</strong> | Agronomo</h4>#}
+
+            <div style="margin-top: 60px">
+                <span class="about-title">Elisa Frappi</span> <span class="about-divider">|</span><span
+                    class="about-subtitle">Agronomo</span>
+            </div>
+            <div>
+                <a class="social-icon" href="mailto:info@pool-landscape.it"><i class="fa fa-envelope"
+                                                                               aria-hidden="true"></i>
+                    elisa.frappi@pool-landscape.it</a>
+            </div>
+
+            <dl class="dl-horizontal dl-pool">
+                <dt>1983</dt>
+                <dd>nasce ad Arezzo e cresce nel vivaio di famiglia</dd>
+                <dt>2002-2008</dt>
+                <dd>studia alla Facoltà di Agraria di Firenze e si specializza presso la Facoltà di Agraria di
+                    Bologna
+                </dd>
+                <dt>2008</dt>
+                <dd>si laurea con una tesi in Progettazione paesaggistica con Gabrile Paolinelli</dd>
+                <dt>2018</dt>
+                <dd>pool</dd>
+            </dl>
+        </div>
+    {% endeditable %}
+
+{% endblock %}

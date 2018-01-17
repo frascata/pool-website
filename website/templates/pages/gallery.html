@@ -7,42 +7,48 @@
 
     {% editable page.gallery.content %}
         <div class="project-detail-gallery-description">
-            <div>
+            <div class="container">
+                <div class="row project-detail-gallery-description-content">
+                    <div class="col-md-12">
+                        <div>
+                            <a data-toggle="collapse" data-target="#collapse-{{ page.gallery.id }}"
+                               aria-expanded="false"
+                               aria-controls="collapse-{{ page.gallery.id }}">
 
-                <span class="project-detail-gallery-title">
-                    {{ page.gallery.title }}
-                </span>
-
-                <span class="project-detail-gallery-subtitle">{{ page.gallery.project_date }} <span
-                        class="project-detail-gallery-divider"> | </span> {{ page.gallery.project_location }}</span>
-
-                <button data-toggle="collapse" data-target="#collapse-{{ page.gallery.id }}" aria-expanded="false"
-                        aria-controls="collapse-{{ page.gallery.id }}">
-                    <span class="caret"></span>
-                </button>
-            </div>
-
-            <div class="collapse" id="collapse-{{ page.gallery.id }}">
-                <div class="card card-body project-detail-gallery-content">
-
-                    <div class="project-detail-gallery-phases">
-                        {% for phase in page.gallery.phase.all %}
-                            {% if LANGUAGE_CODE == 'it' %}{{ phase.title_it }}{% else %}
-                                {{ phase.title_en }}{% endif %}
-                            {% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </div>
-
-                    <p>{{ page.gallery.content|richtext_filters|safe }}</p>
-
-                    {% if page.gallery.partner.count != 0 %}
-                        <div class="project-detail-gallery-partners">
-                            {% trans "in collaborazione con:" %}
-                            {% for partner in page.gallery.partner.all %}
-                                {{ partner.name }} {% if not forloop.last %}, {% endif %}
-                            {% endfor %}
+                                <span class="project-detail-gallery-title">
+                                {{ page.gallery.title }}
+                            </span>
+                                <span class="project-detail-gallery-subtitle">{{ page.gallery.project_date }}
+                                <span class="project-detail-gallery-divider"> | </span> {{ page.gallery.project_location }}</span>
+                                <span class="caret"></span>
+                            </a>
                         </div>
-                    {% endif %}
+
+                        <div class="collapse" id="collapse-{{ page.gallery.id }}">
+                            <div class="card card-body project-detail-gallery-content">
+
+                                <blockquote>{{ page.gallery.content|richtext_filters|safe }}</blockquote>
+
+                                <div class="project-detail-gallery-phases">
+                                    {% for phase in page.gallery.phase.all %}
+                                        {% if LANGUAGE_CODE == 'it' %}{{ phase.title_it }}{% else %}
+                                            {{ phase.title_en }}{% endif %}
+                                        {% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </div>
+
+                                {% if page.gallery.partner.count != 0 %}
+                                    <div class="project-detail-gallery-partners">
+                                        {% trans "in collaborazione con:" %}
+                                        {% for partner in page.gallery.partner.all %}
+                                            {{ partner.name }} {% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

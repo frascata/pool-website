@@ -3,9 +3,8 @@ import { LazyLoadImage } from './LazyLoadImage';
 import styled from 'styled-components';
 
 const Div = styled.div`
-  margin-top: 1%;
-  margin-bottom: 2%;
-  min-height: 500px;
+  padding-top: 20px;
+  padding-bottom: 30px;
 `;
 
 const Gallery = styled.div`

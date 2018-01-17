@@ -9,10 +9,14 @@
     <li class="active">{% trans "Home" %}</li>
 {% endblock %}
 
+{% block extra_js %}
+    {{ block.super }}
+    {% render_bundle 'vendors' %}
+{% endblock %}
+
 {% block main %}
     <div class="home-main-content">
-        <div id="HomeGallery"></div>
-        {% render_bundle 'vendors' %}
+        <div id="HomeGallery" style="min-height: 500px;"></div>
         {% render_bundle 'HomeGallery' %}
 
         <div class="row" style="margin-bottom: 2%;">

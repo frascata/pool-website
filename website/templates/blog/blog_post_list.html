@@ -58,7 +58,8 @@
                                 <div class="col-md-5">
                                     {% block blog_post_list_post_featured_image %}
                                         <a href="{{ blog_post.get_absolute_url }}">
-                                            <img class="img-responsive" src="{{ MEDIA_URL }}{{blog_post.featured_image}}">
+                                            <img class="img-responsive"
+                                                 src="{{ MEDIA_URL }}{{ blog_post.featured_image }}">
                                         </a>
                                     {% endblock %}
                                 </div>
@@ -67,11 +68,13 @@
                                 <div class="col-md-12">
                             {% endif %}
 
-                            {% block blog_post_list_post_content %}
-                                {% editable blog_post.content %}
-                                    {{ blog_post.content|safe }}
-                                {% endeditable %}
-                            {% endblock %}
+                            <div class="blog-post-content">
+                                {% block blog_post_list_post_content %}
+                                    {% editable blog_post.content %}
+                                        {{ blog_post.content|safe }}
+                                    {% endeditable %}
+                                {% endblock %}
+                            </div>
                             </div>
                             </div>
 

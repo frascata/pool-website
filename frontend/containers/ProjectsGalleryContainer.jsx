@@ -6,7 +6,6 @@ import * as projectActions from '../actions/projectActions';
 import * as categoryActions from '../actions/categoryActions';
 
 import ProjectGallery from '../components/ProjectGallery';
-import { getParams } from '../utils';
 
 @connect(state => ({
   projects: state.projects,
@@ -95,7 +94,7 @@ export default class ProjectsGalleryContainer extends React.Component {
 
         return <a className={categoryClassName} key={category.id}
                   onClick={this.filterProject.bind(this, category.id)}>
-          {index !== 0 ? <span>|</span> : null}
+          {index !== 0 ? <span className="category-divider">|</span> : null}
           <span>{category.title}</span>
         </a>;
       });

@@ -587,8 +587,11 @@ def webpack():
     Installs react dependencies
     """
     with cd(env.proj_path):
-        run('rm -rf website/static/bundles/prod/*')
-        # run('webpack --config webpack.prod.config.js --progress --colors')
+        run('pwd')
+        run('rm -rf static/bundles/local/')
+        run('rm -rf static/bundles/prod/')
+        run('rm -rf website/static/bundles/prod/')
+        run('./node_modules/webpack/bin/webpack.js --config webpack.prod.config.js --progress --colors')
 
 
 @task
@@ -649,19 +652,20 @@ def deploy():
         else:
             rsync_upload()
 
-    # MIGRATION handled manually
-    # with project():
-    #     manage("collectstatic -v 0 --noinput")
+    # WEBPACK
+    webpack()
+
+    with project():
+        manage("collectstatic -v 0 --noinput")
+        # MIGRATION handled manually
     #     manage("migrate --noinput")
 
     # SERVICES
     for name in get_templates():
         upload_template_and_reload(name)
 
-    # WEBPACK
-    webpack()
-
     restart()
+
     return True
 
 

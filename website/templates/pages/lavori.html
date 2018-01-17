@@ -20,10 +20,14 @@
     {% editable page.title %}{{ page.title }}{% endeditable %}
 {% endblock %}
 
+{% block extra_js %}
+    {{ block.super }}
+    {% render_bundle 'vendors' %}
+{% endblock %}
+
 {% block main %}
     <div class="projects-main-content">
         <div id="ProjectsGallery"></div>
-        {% render_bundle 'vendors' %}
         {% render_bundle 'ProjectsGallery' %}
     </div>
 {% endblock %}

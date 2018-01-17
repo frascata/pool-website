@@ -2,6 +2,11 @@ import React from 'react';
 import { LazyLoadImage } from './LazyLoadImage';
 import styled from 'styled-components';
 
+const Div = styled.div`
+  padding-top: 20px;
+  padding-bottom: 30px;
+`;
+
 const Gallery = styled.div`
   cursor: pointer;
   
@@ -38,6 +43,37 @@ const Gallery = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+  }
+  
+  .overlay-black {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0,0,0,0.3);
+  }
+  
+  :hover .overlay-black {
+    opacity: 1;
+  }
+  
+  .text-black {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+  
+  .text-black .project-item-url {
+    color: white !important;
   }
 `;
 
@@ -109,7 +145,7 @@ export default class ProjectGallery extends React.Component {
       // const imagesNumber = project.images.length;
 
       return (
-        <div className="row">
+        <Div className="row">
           <div className="col-md-12">
             <div className="row">
               <div className="col-md-12">
@@ -145,7 +181,7 @@ export default class ProjectGallery extends React.Component {
               {/*</div>*/}
             </GalleryItemTitle>
           </div>
-        </div>
+        </Div>
       );
     }
 
