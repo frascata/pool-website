@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 17:07+0100\n"
+"POT-Creation-Date: 2018-02-03 17:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,6 @@ msgid "Collaborator"
 msgstr "Collaboratore"
 
 #: models.py:35
-#| msgid "Project Partner"
 msgid "Partner"
 msgstr "Collaboratore"
 
@@ -51,7 +50,7 @@ msgstr "Fase di progetto"
 msgid "Project Phases"
 msgstr "Fasi di progetto"
 
-#: templates/base.html:64
+#: templates/base.html:70
 msgid "Cookie law message"
 msgstr ""
 "Questo sito web utilizza i cookie per assicurarti di ottenere la migliore "
@@ -97,15 +96,20 @@ msgstr "nasce ad Arezzo  e cresce nel vivaio di famiglia"
 
 #: templates/pages/chi-siamo.html:26
 msgid "EF_2002-2008_about"
-msgstr "studia alla Facoltà di Agraria di Firenze e si specializza presso la Facoltà di Agraria di Bologna"
+msgstr ""
+"studia alla Facoltà di Agraria di Firenze e si specializza presso la Facoltà "
+"di Agraria di Bologna"
 
 #: templates/pages/chi-siamo.html:28
 msgid "EF_2008_about"
-msgstr "si laurea con una tesi in Progettazione paesaggistica con Gabrile Paolinelli"
+msgstr ""
+"si laurea con una tesi in Progettazione paesaggistica con Gabrile Paolinelli"
 
 #: templates/pages/chi-siamo.html:30
 msgid "EF_2008-2015_about"
-msgstr "lavora presso studi di architettura del paesaggio a Bologna - StudioSilva, Frassinago 18 - e a Milano presso lo Studio LAND come Project manager"
+msgstr ""
+"lavora presso studi di architettura del paesaggio a Bologna - StudioSilva, "
+"Frassinago 18 - e a Milano presso lo Studio LAND come Project manager"
 
 #: templates/pages/chi-siamo.html:32
 msgid "EF_2015-2017_about"
@@ -125,11 +129,15 @@ msgstr "Architetto"
 
 #: templates/pages/chi-siamo.html:51
 msgid "CG_2002-2008_about"
-msgstr "studia Architettura presso l'Università IUAV di Venezia e presso l'EPSEB di Barcellona (Spagna)"
+msgstr ""
+"studia Architettura presso l'Università IUAV di Venezia e presso l'EPSEB di "
+"Barcellona (Spagna)"
 
 #: templates/pages/chi-siamo.html:53
 msgid "CG_2008_about"
-msgstr "si laurea in Architettura per la città all' Università IUAV di Venezia con Bernardo Secchi, Alberto Ferlenga, Agostino Cappelli "
+msgstr ""
+"si laurea in Architettura per la città all' Università IUAV di Venezia con "
+"Bernardo Secchi, Alberto Ferlenga, Agostino Cappelli "
 
 #: templates/pages/chi-siamo.html:55
 msgid "CG_2009-2013_about"
@@ -149,15 +157,23 @@ msgstr "Architetto Paesaggista"
 
 #: templates/pages/chi-siamo.html:74
 msgid "IS_2003-2009_about"
-msgstr "studia Architettura Ambientale presso il Politecnico di Milano e si specializza in Architettura del Paesaggio attraverso un master e la Laurea Specialistica in Architettura del Paesaggio alla Facoltà di Architettura di Genova."
+msgstr ""
+"studia Architettura Ambientale presso il Politecnico di Milano e si "
+"specializza in Architettura del Paesaggio attraverso un master e la Laurea "
+"Specialistica in Architettura del Paesaggio alla Facoltà di Architettura di "
+"Genova."
 
 #: templates/pages/chi-siamo.html:76
 msgid "IS_2007-20016_about"
-msgstr "collabora con studi di Architettura del Paesaggio nazionali e internazionali come progettista e project manager."
+msgstr ""
+"collabora con studi di Architettura del Paesaggio nazionali e internazionali "
+"come progettista e project manager."
 
 #: templates/pages/chi-siamo.html:78
 msgid "IS_2014-2015_about"
-msgstr "assistente alla didattica per il corso di Landscape and Public Space Design al Politecnico di Milano."
+msgstr ""
+"assistente alla didattica per il corso di Landscape and Public Space Design "
+"al Politecnico di Milano."
 
 #: templates/pages/chi-siamo.html:80
 msgid "IS_2017_about"
@@ -174,14 +190,3 @@ msgstr "in collaborazione con:"
 #: templates/pages/menus/admin.html:31
 msgid "Add"
 msgstr ""
-
-#~ msgid "News Posted:"
-#~ msgstr "Pubblicato il:"
-
-#~ msgid "%(sometime)s ago"
-#~ msgstr "%(sometime)s fà"
-
-#, fuzzy
-#~| msgid "Project Categories"
-#~ msgid "Categories"
-#~ msgstr "Categorie"

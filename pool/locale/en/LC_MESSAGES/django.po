@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-05 15:54+0100\n"
+"POT-Creation-Date: 2018-02-03 17:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings.py:88
+#: pool/settings.py:90
 msgid "Homepage Visible"
 msgstr ""
 
-#: settings.py:98
+#: pool/settings.py:100
 msgid "Project Location"
 msgstr ""
 
-#: settings.py:108
+#: pool/settings.py:110
 msgid "Project Date"
 msgstr ""
 
-#: settings.py:120
+#: pool/settings.py:122
 msgid "Project Category"
 msgstr ""
 
-#: settings.py:130
+#: pool/settings.py:132
 msgid "Project Partner"
 msgstr ""
 
-#: settings.py:140
+#: pool/settings.py:142
 msgid "Project Phase"
 msgstr ""
 
-#: settings.py:179
+#: pool/settings.py:152
+msgid "Featured Image"
+msgstr ""
+
+#: pool/settings.py:193
 msgid "Italian"
 msgstr ""
 
-#: settings.py:180
+#: pool/settings.py:194
 msgid "English"
 msgstr ""

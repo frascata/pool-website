@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 17:07+0100\n"
+"POT-Creation-Date: 2018-02-03 17:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Project Phases"
 msgstr ""
 
-#: templates/base.html:64
+#: templates/base.html:70
 msgid "Cookie law message"
 msgstr ""
 "This website uses cookies to ensure you get the best experience on our "
@@ -123,11 +123,15 @@ msgstr "Architect"
 
 #: templates/pages/chi-siamo.html:51
 msgid "CG_2002-2008_about"
-msgstr "studied Architecture at Università IUAV of Venezia (Italy) and at EPSEB of Barcelona (Spain)"
+msgstr ""
+"studied Architecture at Università IUAV of Venezia (Italy) and at EPSEB of "
+"Barcelona (Spain)"
 
 #: templates/pages/chi-siamo.html:53
 msgid "CG_2008_about"
-msgstr "Masters Degree in Architecture at Università IUAV di Venezia with Bernardo Secchi, Alberto Ferlenga, Agostino Cappelli "
+msgstr ""
+"Masters Degree in Architecture at Università IUAV di Venezia with Bernardo "
+"Secchi, Alberto Ferlenga, Agostino Cappelli "
 
 #: templates/pages/chi-siamo.html:55
 msgid "CG_2009-2013_about"
@@ -137,25 +141,32 @@ msgstr "project leader in landscape studio LAND, Milan"
 msgid "CG_2013_about"
 msgstr "co-founder of Pool with Annapaola Busnardo"
 
-#: templates/pages/chi-siamo.html:59
+#: website/templates/pages/chi-siamo.html:59
 msgid "CG_2017_about"
-msgstr "associate at Pool with Ilaria sangaletti and Elisa Frappi"
+msgstr ""
 
 #: templates/pages/chi-siamo.html:66
 msgid "Architetto Paesaggista"
-msgstr "Landscape Architect"
+msgstr ""
 
 #: templates/pages/chi-siamo.html:74
 msgid "IS_2003-2009_about"
-msgstr "studied Environmental Architecture at Politecnico of Milan. International Master at Politecnico of Milan and Bachelor of Landscape Architecture University of Genova."
+msgstr ""
+"studied Environmental Architecture at Politecnico of Milan. International "
+"Master at Politecnico of Milan and Bachelor of Landscape Architecture "
+"University of Genova."
 
 #: templates/pages/chi-siamo.html:76
 msgid "IS_2007-20016_about"
-msgstr "Landscape Architect and Project Leader for international landcape architecture officies."
+msgstr ""
+"Landscape Architect and Project Leader for international landcape "
+"architecture officies."
 
 #: templates/pages/chi-siamo.html:78
 msgid "IS_2014-2015_about"
-msgstr "teaching assistant for the Landscape and Public Space Design course at Politecnico of Milan."
+msgstr ""
+"teaching assistant for the Landscape and Public Space Design course at "
+"Politecnico of Milan."
 
 #: templates/pages/chi-siamo.html:80
 msgid "IS_2017_about"
@@ -172,6 +183,3 @@ msgstr "in collaboration with:"
 #: templates/pages/menus/admin.html:31
 msgid "Add"
 msgstr ""
-
-#~ msgid "News Posted:"
-#~ msgstr "Posted:"
