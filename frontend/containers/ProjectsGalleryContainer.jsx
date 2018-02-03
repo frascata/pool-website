@@ -45,16 +45,6 @@ export default class ProjectsGalleryContainer extends React.Component {
     }
   }
 
-  renderLoading() {
-    return (
-      <div className="row">
-        <div className="col-sm-12">
-          loading...
-        </div>
-      </div>
-    );
-  }
-
   openProject(project) {
     window.location.href = `${window.location.origin}/${project.url}`;
   }

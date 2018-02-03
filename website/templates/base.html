@@ -11,7 +11,13 @@
         {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
 
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#ffffff">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#1d1d1b">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#1d1d1b">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1d1d1b">
 
     <link rel="manifest" href="{% static "manifest.json" %}">
     <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
