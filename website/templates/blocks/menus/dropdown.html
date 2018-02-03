@@ -1,0 +1,17 @@
+{% load i18n pages_tags %}
+{% spaceless %}
+    {% if page_branch_in_menu %}
+        <ul class="nav navbar-nav">
+            {% for page in page_branch %}
+                {% if page.in_menu %}
+                    <li class="{% if page.is_current_or_ascendant %}active{% endif %}"
+                        id="{{ page.html_id }}">
+                        <a href="{{ page.get_absolute_url }}">
+                            {{ page.title }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endspaceless %}

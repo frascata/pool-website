@@ -1,0 +1,86 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags i18n %}
+
+{% block main %}
+    {{ block.super }}
+
+
+    <div class="about-main-content">
+        {% editable page.richtextpage.content %}
+            {{ page.richtextpage.content|richtext_filters|safe }}
+        {% endeditable %}
+
+        <!-- ELISA -->
+        <div class="about-person">
+            <h4>
+                <strong>Elisa Frappi</strong><span class="about-subtitle"> | {% trans "Agronomo" %}</span>
+            </h4>
+            <a class="social-icon" href="mailto:elisa.frappi@pool-landscape.it">
+                <i class="fa fa-envelope" aria-hidden="true"></i> elisa.frappi@pool-landscape.it
+            </a>
+
+            <dl class="dl-horizontal dl-pool">
+                <dt>1983</dt>
+                <dd>{% trans "EF_1983_about" %}</dd>
+                <dt>2002-2008</dt>
+                <dd>{% trans "EF_2002-2008_about" %}</dd>
+                <dt>2008</dt>
+                <dd>{% trans "EF_2008_about" %}</dd>
+                <dt>2008-2015</dt>
+                <dd>{% trans "EF_2008-2015_about" %}</dd>
+                <dt>2015-2017</dt>
+                <dd>{% trans "EF_2015-2017_about" %}</dd>
+                <dt>2017</dt>
+                <dd>{% trans "EF_2017_about" %}</dd>
+                <dt>{% trans "Interessi" %}</dt>
+                <dd>{% trans "EF_2017_about" %}</dd>
+            </dl>
+        </div>
+
+        <!-- CATERINA -->
+        <div class="about-person">
+            <h4>
+                <strong>Caterina Gerolimetto</strong><span class="about-subtitle"> | {% trans "Architetto" %}</span>
+            </h4>
+            <a class="social-icon" href="mailto:caterina.gerolimetto@pool-landscape.it">
+                <i class="fa fa-envelope" aria-hidden="true"></i> caterina.gerolimetto@pool-landscape.it
+            </a>
+
+            <dl class="dl-horizontal dl-pool">
+                <dt>2002-2008</dt>
+                <dd>{% trans "CG_2002-2008_about" %}</dd>
+                <dt>2008</dt>
+                <dd>{% trans "CG_2008_about" %}</dd>
+                <dt>2009-2013</dt>
+                <dd>{% trans "CG_2009-2013_about" %}</dd>
+                <dt>2013</dt>
+                <dd>{% trans "CG_2013_about" %}</dd>
+                <dt>2017</dt>
+                <dd>{% trans "CG_2017_about" %}</dd>
+            </dl>
+        </div>
+
+        <!-- ILARIA -->
+        <div class="about-person">
+            <h4>
+                <strong>Ilaria Sangaletti</strong><span class="about-subtitle"> | {% trans "Architetto Paesaggista" %}</span>
+            </h4>
+            <a class="social-icon" href="mailto:ilaria.sangaletti@pool-landscape.it">
+                <i class="fa fa-envelope" aria-hidden="true"></i> ilaria.sangaletti@pool-landscape.it
+            </a>
+
+            <dl class="dl-horizontal dl-pool">
+                <dt>2003-2009</dt>
+                <dd>{% trans "IS_2003-2009_about" %}</dd>
+                <dt>2007-20016</dt>
+                <dd>{% trans "IS_2007-20016_about" %}</dd>
+                <dt>2014-2015</dt>
+                <dd>{% trans "IS_2014-2015_about" %}</dd>
+                <dt>2017</dt>
+                <dd>{% trans "IS_2017_about" %}</dd>
+            </dl>
+        </div>
+
+    </div>
+
+{% endblock %}

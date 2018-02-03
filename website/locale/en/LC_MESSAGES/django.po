@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-03 17:58+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:14
+msgid "Project Category"
+msgstr ""
+
+#: models.py:15
+msgid "Project Categories"
+msgstr ""
+
+#: models.py:34
+msgid "Collaborator"
+msgstr ""
+
+#: models.py:35
+msgid "Partner"
+msgstr ""
+
+#: models.py:50
+msgid "Project Partner"
+msgstr ""
+
+#: models.py:51
+msgid "Project Partners"
+msgstr ""
+
+#: models.py:69
+msgid "Project Phase"
+msgstr ""
+
+#: models.py:70
+msgid "Project Phases"
+msgstr ""
+
+#: templates/base.html:70
+msgid "Cookie law message"
+msgstr ""
+"This website uses cookies to ensure you get the best experience on our "
+"website."
+
+#: templates/blocks/footer.html:39
+msgid "Change"
+msgstr ""
+
+#: templates/blocks/header.html:7
+msgid "Toggle Navigation"
+msgstr ""
+
+#: templates/blocks/menus/mobile_dropdown.html:17
+msgid "Contacts"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:4 templates/blog/blog_post_list.html:22
+msgid "Blog"
+msgstr ""
+
+#: templates/index.html:5 templates/index.html:6 templates/index.html:9
+#: templates/pages/menus/breadcrumb.html:4
+#: templates/pages/menus/breadcrumb.html:10
+#: templates/pages/menus/dropdown.html:10
+#: templates/pages/menus/footer_tree.html:11
+#: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
+#: templates/pages/menus/tree.html:9
+msgid "Home"
+msgstr ""
+
+#: templates/index.html:25
+msgid "Other Works"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:16
+msgid "Agronomo"
+msgstr "Agronomist"
+
+#: templates/pages/chi-siamo.html:24
+msgid "EF_1983_about"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:26
+msgid "EF_2002-2008_about"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:28
+msgid "EF_2008_about"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:30
+msgid "EF_2008-2015_about"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:32
+msgid "EF_2015-2017_about"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:34 templates/pages/chi-siamo.html:36
+msgid "EF_2017_about"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:35
+msgid "Interessi"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:43
+msgid "Architetto"
+msgstr "Architect"
+
+#: templates/pages/chi-siamo.html:51
+msgid "CG_2002-2008_about"
+msgstr ""
+"studied Architecture at Università IUAV of Venezia (Italy) and at EPSEB of "
+"Barcelona (Spain)"
+
+#: templates/pages/chi-siamo.html:53
+msgid "CG_2008_about"
+msgstr ""
+"Masters Degree in Architecture at Università IUAV di Venezia with Bernardo "
+"Secchi, Alberto Ferlenga, Agostino Cappelli "
+
+#: templates/pages/chi-siamo.html:55
+msgid "CG_2009-2013_about"
+msgstr "project leader in landscape studio LAND, Milan"
+
+#: templates/pages/chi-siamo.html:57
+msgid "CG_2013_about"
+msgstr "co-founder of Pool with Annapaola Busnardo"
+
+#: website/templates/pages/chi-siamo.html:59
+msgid "CG_2017_about"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:66
+msgid "Architetto Paesaggista"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:74
+msgid "IS_2003-2009_about"
+msgstr ""
+"studied Environmental Architecture at Politecnico of Milan. International "
+"Master at Politecnico of Milan and Bachelor of Landscape Architecture "
+"University of Genova."
+
+#: templates/pages/chi-siamo.html:76
+msgid "IS_2007-20016_about"
+msgstr ""
+"Landscape Architect and Project Leader for international landcape "
+"architecture officies."
+
+#: templates/pages/chi-siamo.html:78
+msgid "IS_2014-2015_about"
+msgstr ""
+"teaching assistant for the Landscape and Public Space Design course at "
+"Politecnico of Milan."
+
+#: templates/pages/chi-siamo.html:80
+msgid "IS_2017_about"
+msgstr "associate at Pool"
+
+#: templates/pages/gallery.html:34
+msgid "fasi:"
+msgstr "phases:"
+
+#: templates/pages/gallery.html:45
+msgid "in collaborazione con:"
+msgstr "in collaboration with:"
+
+#: templates/pages/menus/admin.html:31
+msgid "Add"
+msgstr ""

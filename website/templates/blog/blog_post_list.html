@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load i18n mezzanine_tags blog_tags keyword_tags disqus_tags %}
+
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}
+        {% if not forloop.first %}, {% endif %}
+        {{ keyword }}
+    {% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block title %}
+    {% if page %}
+        {% editable page.title %}{{ page.title }}{% endeditable %}
+    {% else %}
+        {% trans "Blog" %}
+    {% endif %}
+{% endblock %}
+
+
+{% block main %}
+    <div class="news-main-content row">
+        <div class="col-md-offset-2 col-md-8">
+            {% for blog_post in blog_posts.object_list %}
+                <div class="news-item row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {% block blog_post_list_post_title %}
+                                    {% editable blog_post.title %}
+                                        <h3>{{ blog_post.title }}</h3>
+                                    {% endeditable %}
+                                {% endblock %}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="row">
+                                    {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+                                        <div class="col-md-12">
+                                            {% block blog_post_list_post_featured_image %}
+                                                <a href="{{ blog_post.get_absolute_url }}">
+                                                    <img class="img-responsive"
+                                                         src="{{ MEDIA_URL }}{{ blog_post.featured_image }}">
+                                                </a>
+                                            {% endblock %}
+                                        </div>
+                                    {% endif %}
+                                    <div class="col-md-12">
+                                        <div class="blog-post-content">
+                                            {% block blog_post_list_post_content %}
+                                                {% editable blog_post.content %}
+                                                    {{ blog_post.content|safe }}
+                                                {% endeditable %}
+                                            {% endblock %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% pagination_for blog_posts %}
+        </div>
+    </div>
+{% endblock %}

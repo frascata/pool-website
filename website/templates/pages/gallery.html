@@ -1,0 +1,74 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags staticfiles i18n %}
+
+{% block main %}
+    {{ block.super }}
+
+    {% editable page.gallery.content %}
+        <div class="project-detail-gallery-description">
+            <div class="container">
+                <div class="row project-detail-gallery-description-content">
+                    <div class="col-md-12">
+                        <div>
+                            <a data-toggle="collapse" data-target="#collapse-{{ page.gallery.id }}"
+                               aria-expanded="false"
+                               aria-controls="collapse-{{ page.gallery.id }}">
+
+                                <span class="project-detail-gallery-title">
+                                {{ page.gallery.title }}
+                            </span>
+                                <span class="project-detail-gallery-subtitle">{{ page.gallery.project_date }}
+                                <span class="project-detail-gallery-divider"> | </span> {{ page.gallery.project_location }}</span>
+                                <span class="collapse-icon">+</span>
+                            </a>
+                        </div>
+
+                        <div class="collapse" id="collapse-{{ page.gallery.id }}">
+                            <div class="card card-body project-detail-gallery-content">
+
+                                <p>{{ page.gallery.content|richtext_filters|safe }}</p>
+
+                                {% if page.gallery.phase.count != 0 %}
+                                    <div class="project-detail-gallery-phases">
+                                        {% trans "fasi:" %}
+                                        {% for phase in page.gallery.phase.all %}
+                                            {% if LANGUAGE_CODE == 'it' %}{{ phase.title_it }}{% else %}
+                                                {{ phase.title_en }}{% endif %}
+                                            {% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                                {% if page.gallery.partner.count != 0 %}
+                                    <div class="project-detail-gallery-partners">
+                                        {% trans "in collaborazione con:" %}
+                                        {% for partner in page.gallery.partner.all %}
+                                            {{ partner.name }} {% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endeditable %}
+
+    <div class="row project-detail-gallery-images">
+        <div class="col-xs-12 col-sm-12">
+            {% with page.gallery.images.all as images %}
+                {% for image in images %}
+                    <div class="project-detail-gallery-item row">
+                        <div class="col-xs-12 col-sm-12">
+                            <img class="img-responsive" src="{{ MEDIA_URL }}{{ image.file }}"
+                                 title="{{ image.description }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endwith %}
+        </div>
+    </div>
+{% endblock %}

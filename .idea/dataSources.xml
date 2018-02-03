@@ -5,10 +5,16 @@
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5434/pool</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/pool</jdbc-url>
       <driver-properties>
         <property name="ApplicationName" value="DataGrip" />
       </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="pool LIVE" uuid="c6ed30f5-fdce-4bfa-9928-919a0a958e92">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/pool</jdbc-url>
     </data-source>
   </component>
 </project>

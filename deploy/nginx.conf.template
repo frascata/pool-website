@@ -1,0 +1,76 @@
+
+upstream %(proj_name)s {
+    server unix:%(proj_path)s/gunicorn.sock fail_timeout=0;
+}
+
+server {
+
+    listen 80;
+    listen 443 ssl;
+    server_name %(domains_nginx)s;
+    client_max_body_size 10M;
+    keepalive_timeout    15;
+    error_log /home/%(user)s/logs/%(proj_name)s_error_nginx.log info;
+
+    ssl_certificate /etc/letsencrypt/live/pool.vivaifrappi.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/pool.vivaifrappi.com/privkey.pem; # managed by Certbot
+    ssl_session_cache    shared:SSL:10m;
+    ssl_session_timeout  10m;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-G$
+    ssl_prefer_server_ciphers on;
+    ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+
+    # Deny illegal Host headers
+    if ($host !~* ^(%(domains_regex)s)$) {
+        return 444;
+    }
+
+    gzip on;
+    gzip_disable "msie6";
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_buffers 16 8k;
+    gzip_http_version 1.1;
+    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript text/html;
+
+
+    location / {
+        proxy_redirect      off;
+        proxy_set_header    Host                    $host;
+        proxy_set_header    X-Real-IP               $remote_addr;
+        proxy_set_header    X-Forwarded-For         $proxy_add_x_forwarded_for;
+        proxy_set_header    X-Forwarded-Protocol    $scheme;
+        proxy_pass          http://%(proj_name)s;
+    }
+
+    location /static/ {
+        root            %(proj_path)s;
+        access_log      off;
+        log_not_found   off;
+        expires 30d;
+    }
+
+    location /robots.txt {
+        root            %(proj_path)s/static;
+        access_log      off;
+        log_not_found   off;
+    }
+
+    location /favicon.ico {
+        root            %(proj_path)s/static/img;
+        access_log      off;
+        log_not_found   off;
+    }
+
+    location /manifest.json {
+        root            %(proj_path)s/static;
+        access_log      off;
+        log_not_found   off;
+    }
+
+    # Redirect non-https traffic to https
+    if ($scheme != "https") {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+}

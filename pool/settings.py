@@ -1,10 +1,9 @@
-
 from __future__ import absolute_import, unicode_literals
 import os
 
 from django import VERSION as DJANGO_VERSION
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
-
 
 ######################
 # MEZZANINE SETTINGS #
@@ -48,6 +47,10 @@ from django.utils.translation import ugettext_lazy as _
 #     (3, _("Footer"), "pages/menus/footer.html"),
 # )
 
+BLOG_SLUG = "news"
+
+PAGE_MENU_TEMPLATES = ()
+
 # A sequence of fields that will be injected into Mezzanine's (or any
 # library's) models. Each item in the sequence is a four item sequence.
 # The first two items are the dotted path to the model and its field
@@ -77,14 +80,88 @@ from django.utils.translation import ugettext_lazy as _
 #     ),
 # )
 
+EXTRA_MODEL_FIELDS = (
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.homepage_visible",
+        # Dotted path to field class.
+        "BooleanField",
+        # Positional args for field class.
+        (_("Homepage Visible"),),
+        # Keyword args for field class.
+        {"default": False},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.project_location",
+        # Dotted path to field class.
+        "CharField",
+        # Positional args for field class.
+        (_("Project Location"),),
+        # Keyword args for field class.
+        {"max_length": 256, "null": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.project_date",
+        # Dotted path to field class.
+        "CharField",
+        # Positional args for field class.
+        (_("Project Date"),),
+        # Keyword args for field class.
+        {"max_length": 128, "null": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.category",
+        # Dotted path to field class.
+        "ManyToManyField",
+        # Positional args for field class.
+        ("website.Category",),
+        # Keyword args for field class.
+        {"verbose_name": _("Project Category"), "blank": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.partner",
+        # Dotted path to field class.
+        "ManyToManyField",
+        # Positional args for field class.
+        ("website.Partner",),
+        # Keyword args for field class.
+        {"verbose_name": _("Project Partner"), "blank": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.phase",
+        # Dotted path to field class.
+        "ManyToManyField",
+        # Positional args for field class.
+        ("website.Phase",),
+        # Keyword args for field class.
+        {"verbose_name": _("Project Phase"), "blank": True},
+    ),
+    (
+        # Dotted path to field.
+        "mezzanine.galleries.models.Gallery.featured_image",
+        # Dotted path to field class.
+        "mezzanine.core.fields.FileField",
+        # Positional args for field class.
+        (),
+        # Keyword args for field class.
+        {"verbose_name": _("Featured Image"),
+         "format": "Image", "max_length": 255,
+         "null": True, "blank": True},
+    ),
+)
+
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
-# BLOG_USE_FEATURED_IMAGE = True
+BLOG_USE_FEATURED_IMAGE = True
 
 # If True, the django-modeltranslation will be added to the
 # INSTALLED_APPS setting.
 USE_MODELTRANSLATION = True
-
 
 ########################
 # MAIN DJANGO SETTINGS #
@@ -92,7 +169,7 @@ USE_MODELTRANSLATION = True
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pool.vivaifrappi.com']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -108,14 +185,16 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "it"
 
 # Supported languages
 gettext = lambda s: s
 LANGUAGES = (
-    ('en', gettext('English')),
     ('it', gettext('Italian')),
+    ('en', gettext('English')),
 )
+
+LANGUAGE_COOKIE_NAME = 'pool_language'
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
@@ -136,7 +215,6 @@ AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 # The numeric mode to set newly-uploaded files to. The value should be
 # a mode you'd pass directly to os.chmod.
 FILE_UPLOAD_PERMISSIONS = 0o644
-
 
 #############
 # DATABASES #
@@ -200,7 +278,10 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(PROJECT_ROOT, "templates")
+            os.path.join(PROJECT_ROOT, "website", "templates"),
+            os.path.join(PROJECT_ROOT, "templates_admin"),
+            os.path.join(PROJECT_ROOT, "templates_mezzanine"),
+            os.path.join(PROJECT_ROOT, "static"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -226,16 +307,23 @@ TEMPLATES = [
 if DJANGO_VERSION < (1, 9):
     del TEMPLATES[0]["OPTIONS"]["builtins"]
 
+###########
+# WEBPACK #
+###########
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': True,
+        'BUNDLE_DIR_NAME': 'bundles/prod/',  # end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats-prod.json'),
+    }
+}
 
 ################
 # APPLICATIONS #
 ################
 
 INSTALLED_APPS = (
-    'mezzanine_api',
-    'rest_framework',
-    'rest_framework_swagger',
-    'oauth2_provider',
     'modeltranslation',
     "django.contrib.admin",
     "django.contrib.auth",
@@ -244,6 +332,9 @@ INSTALLED_APPS = (
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    # Disable Django's own staticfiles handling in favour of WhiteNoise, for
+    # greater consistency between gunicorn and `./manage.py runserver`. See:
+    # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     "django.contrib.staticfiles",
     "mezzanine.boot",
     "mezzanine.conf",
@@ -256,18 +347,20 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     # "mezzanine.accounts",
     # "mezzanine.mobile",
+    'website',
+    'webpack_loader',
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
 # response phase the middleware will be applied in reverse order.
 MIDDLEWARE_CLASSES = (
-    'mezzanine_api.middleware.ApiMiddleware',
     "mezzanine.core.middleware.UpdateCacheMiddleware",
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     # Uncomment if using internationalisation or localisation
-    # 'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -327,12 +420,12 @@ f = os.path.join(PROJECT_APP_PATH, "local_settings.py")
 if os.path.exists(f):
     import sys
     import imp
+
     module_name = "%s.local_settings" % PROJECT_APP
     module = imp.new_module(module_name)
     module.__file__ = f
     sys.modules[module_name] = module
-    exec(open(f, "rb").read())
-
+    exec (open(f, "rb").read())
 
 ####################
 # DYNAMIC SETTINGS #

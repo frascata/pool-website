@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>
+        {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#1d1d1b">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#1d1d1b">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1d1d1b">
+
+    <link rel="manifest" href="{% static "manifest.json" %}">
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/favicon-16x16.png" %}">
+    <link rel="mask-icon" href="{% static "img/safari-pinned-tab.svg" %}" color="#5bbad5">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+
+    {% compress css %}
+        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+        {#        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">#}
+        {#        <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">#}
+        {% if LANGUAGE_BIDI %}
+            <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
+        {% endif %}
+        {% block extra_css %}
+            <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+            <link rel="stylesheet" href="{% static "css/cookieconsent.min.css" %}">
+            <link rel="stylesheet" href="{% static "css/pool.css" %}">
+        {% endblock %}
+    {% endcompress %}
+
+    {% compress js %}
+        <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+        <script src="{% static "js/bootstrap.js" %}"></script>
+        <script src="{% static "js/bootstrap-extras.js" %}"></script>
+        <script src="{% static "js/anime.js" %}"></script>
+        <script src="{% static "js/js.cookie.min.js" %}"></script>
+        <script src="{% static "js/cookieconsent.min.js" %}"></script>
+        {% block extra_js %}
+        {% endblock %}
+        <script>
+          function showCookieLawMessage() {
+            window.cookieconsent.initialise({
+              'palette': {
+                'popup': {
+                  'background': '#1d1d1b',
+                },
+                'button': {
+                  'background': 'transparent',
+                  'border': '#ffffff',
+                  'text': '#ffffff',
+                },
+              },
+              'showLink': false,
+              'position': 'bottom',
+              'content': {
+                'message': '{% trans "Cookie law message" %}',
+                'dismiss': 'ok',
+                'href': '/',
+              },
+            });
+          }
+        </script>
+        <script src="{% static "js/main.js" %}"></script>
+    {% endcompress %}
+
+    <!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js" %}"></script>
+<script src="{% static "js/respond.min.js" %}"></script>
+<![endif]-->
+
+    {% block extra_head %}{% endblock %}
+
+</head>
+
+<body id="{% block body_id %}body{% endblock %}">
+<div id="animatedLogo" style="display: none;">
+    <svg id="POOL_LOGO" viewBox="0 0 259.78 158.85">
+        <g class="lines" fill="none" fill-rule="evenodd"
+           stroke="#1d1d1b"
+           stroke-width="1">
+            <path d="M0,42.67 h13.98 v116.18 h-13.98z"
+                  stroke-dasharray="260.32000732421875"
+                  style="stroke-dashoffset: '259.946px;'"></path>
+            <path
+                    d="M99.23,150a25.1,25.1,0,1,0-25.1,25.11A25.1,25.1,0,0,0,99.23,150m-25.1-36.21A36.21,36.21,0,1,1,37.91,150a36.21,36.21,0,0,1,36.22-36.21"
+                    transform="translate(-19.98 -70.57)"
+                    stroke-dasharray="385.2767333984375"
+                    style="stroke-dashoffset: '385.277px;'"></path>
+            <path
+                    d="M109.73,150a35.61,35.61,0,1,1-35.6-35.6A35.6,35.6,0,0,1,109.73,150ZM98.8,150a24.68,24.68,0,1,1-24.68-24.68A24.68,24.68,0,0,1,98.8,150Z"
+                    transform="translate(-19.98 -70.57)"
+                    stroke-dasharray="378.8712158203125"
+                    style="stroke-dashoffset: '378.871px;'"></path>
+            <path
+                    d="M174.88,150a25.1,25.1,0,1,0-25.1,25.11A25.1,25.1,0,0,0,174.88,150m-25.1-36.21A36.21,36.21,0,1,1,113.57,150a36.21,36.21,0,0,1,36.22-36.21"
+                    transform="translate(-19.98 -70.57)"
+                    stroke-dasharray="385.2867431640625"
+                    style="stroke-dashoffset: '385.287px;'"></path>
+            <path
+                    d="M185.39,150a35.61,35.61,0,1,1-35.6-35.6A35.6,35.6,0,0,1,185.39,150Zm-10.92,0a24.68,24.68,0,1,1-24.68-24.68A24.68,24.68,0,0,1,174.46,150Z"
+                    transform="translate(-19.98 -70.57)"
+                    stroke-dasharray="378.87127685546875"
+                    style="stroke-dashoffset: '378.871px;'"></path>
+            <path
+                    d="M250.54,150a25.1,25.1,0,1,0-25.1,25.11A25.1,25.1,0,0,0,250.54,150m-25.1-36.21A36.21,36.21,0,1,1,189.23,150a36.21,36.21,0,0,1,36.22-36.21"
+                    transform="translate(-19.98 -70.57)"
+                    stroke-dasharray="385.2867126464844"
+                    style="stroke-dashoffset: '385.287px;'"></path>
+            <path
+                    d="M261,150a35.61,35.61,0,1,1-35.6-35.6A35.6,35.6,0,0,1,261,150Zm-10.92,0a24.68,24.68,0,1,1-24.68-24.68A24.68,24.68,0,0,1,250.12,150Z"
+                    transform="translate(-19.98 -70.57)"
+                    stroke-dasharray="378.9459228515625"
+                    style="stroke-dashoffset: '378.946px;'"></path>
+            <path d="M245.8,0 h13.98 v116.18 h-13.98z"
+                  stroke-dasharray="260.32000732421875"
+                  style="stroke-dashoffset: '260.32px;'"></path>
+        </g>
+    </svg>
+</div>
+
+<div class="main" style="visibility: hidden; opacity: 0;">
+    {% include "blocks/header.html" %}
+
+    <div class="container main-content">
+        <div class="row">
+            <div class="col-md-12 middle">
+                {% block main %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% include "blocks/footer.html" %}
+</div>
+
+{% block footer_js %}
+    <script>
+      var animationCookie = Cookies.get('animation');
+      if (animationCookie && animationCookie === '1') {
+        hideAnimatedLogo();
+        showHomePage();
+        showCookieLawMessage();
+      } else {
+        showAnimatedLogo();
+      }
+    </script>
+
+    {% include "includes/footer_scripts.html" %}
+{% endblock %}
+
+</body>
+</html>
