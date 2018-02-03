@@ -66,6 +66,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 /* CUSTOM NAVBAR */
+.navbar-brand {
+    height: 44px;
+    padding: 3px 0 3px 0;
+    margin-left: 0 !important;
+}
+
+.navbar-brand img {
+    height: 44px;
+}
+
 .navbar-pool {
     background-color: rgba(255, 255, 255, 0.9);
     border: none;
@@ -217,9 +227,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     }
 
     .navbar-brand {
-        text-align: center;
         position: absolute;
-        left: 42%;
+        left: 50%;
+        margin-left: -50px !important; /* 50% of your logo width */
         display: block;
     }
 
@@ -458,7 +468,7 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
         padding: 4px 0 4px 0;
     }
 
-     .category-filters .category-item .category-divider {
+    .category-filters .category-item .category-divider {
         display: none;
     }
 

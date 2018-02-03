@@ -10,9 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             {% block navbar_title %}
-                {% if settings.SITE_TITLE %}
-                    <a class="navbar-brand" href="/"><img style="padding-left: 2px;" alt="Pool" height="32px" src={% static "img/logo.png" %} /></a>
-                {% endif %}
+                <a class="navbar-brand" href="/"><img alt="Pool" src={% static "img/logo.png" %} /></a>
             {% endblock %}
         </div>
         <div class="navbar-collapse collapse hidden-xs">

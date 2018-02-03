@@ -3,19 +3,19 @@
 <footer class="navbar-fixed-bottom hidden-xs">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <div class="pull-left">
                     <span class="copyright">© 2017 Pool Landscape s.r.l</span>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <div class="text-center">
                     <a class="social-icon" href="mailto:info@pool-landscape.it"><i class="fa fa-envelope"
                                                                                    aria-hidden="true"></i>
                         info@pool-landscape.it</a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <div class="pull-right">
                     {% get_language_info_list for LANGUAGES as languages %}
                     {% if settings.USE_MODELTRANSLATION and languages|length > 1 %}
