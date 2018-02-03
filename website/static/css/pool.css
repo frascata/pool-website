@@ -502,23 +502,12 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
     margin-top: 60px;
 }
 
-.about-title {
-    color: #1d1d1b;
-    font-weight: bold;
-    font-size: 20px;
+.about-person {
+    margin-top: 60px;
 }
 
 .about-subtitle {
-    color: #1d1d1b;
-    font-size: 16px;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.about-divider {
-    color: #1d1d1b;
-    padding-left: 2px;
-    padding-right: 2px;
+    font-weight: 300;
 }
 
 .dl-pool {
@@ -532,8 +521,15 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
 }
 
 .dl-pool dt {
-    padding-right: 14px;
+    padding-right: 10px;
     border-right: 1px solid #777;
+    width: 120px;;
+}
+
+@media (min-width: 768px) {
+    .dl-horizontal dd {
+        margin-left: 130px;
+    }
 }
 
 @media (max-width: 768px) {
