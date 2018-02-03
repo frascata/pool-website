@@ -1,5 +1,4 @@
 import React from 'react';
-import { LazyLoadImage } from './LazyLoadImage';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -92,7 +91,6 @@ export default class ProjectGallery extends React.Component {
     };
 
     this.loadGallery = this.loadGallery.bind(this);
-    this.setActiveImage = this.setActiveImage.bind(this);
   }
 
   componentDidMount() {
@@ -115,23 +113,6 @@ export default class ProjectGallery extends React.Component {
     this.setState({imgGallery: htmlGallery});
   }
 
-  setActiveImage() {
-    let active = this.imgGalleryElement.getElementsByClassName('active');
-
-    if (active[0].nextElementSibling) {
-      active[0].nextElementSibling.className = 'img-responsive active';
-      active[0].className = 'img-responsive';
-    } else {
-      active[0].className = 'img-responsive';
-      this.imgGalleryElement.children[0].className = 'img-responsive active';
-    }
-
-    for (let i = 0; i < this.imgGalleryElement.children.length; i++) {
-      if (this.imgGalleryElement.children[i].classList.contains('active'))
-        this.setState({currentImageIndex: i + 1});
-    }
-  }
-
   openProject(project) {
     window.location.href = `${window.location.origin}/${project.url}`;
   }
@@ -144,19 +125,22 @@ export default class ProjectGallery extends React.Component {
       const firstImageAlt = project.previewImage || images[0]['title'];
       // const imagesNumber = project.images.length;
 
+      let backgroundImageStyle = {
+        backgroundImage: `url(${firstImageSrc})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+      };
+
       return (
         <Div className="row">
           <div className="col-md-12">
             <div className="row">
               <div className="col-md-12">
-                <Gallery className="project-gallery project-item-square">
+                <Gallery className="project-gallery project-item-square" style={backgroundImageStyle}>
                   <div ref={(imgGallery) => {
                     this.imgGalleryElement = imgGallery;
                   }}>
-                    <LazyLoadImage src={firstImageSrc}
-                                   alt={firstImageAlt}
-                                   transition={'opacity 1s ease-in-out'}
-                                   className={'img-responsive active'}/>
                     {this.state.imgGallery}
                   </div>
                   <div className="overlay">
@@ -173,12 +157,6 @@ export default class ProjectGallery extends React.Component {
               <div className="col-xs-10">
                 {project.title}
               </div>
-              {/*<div className="col-xs-2">*/}
-                {/*<div className="pull-right">*/}
-                  {/*/!*{this.state.currentImageIndex} | {imagesNumber}*!/*/}
-                  {/*{project.date}*/}
-                {/*</div>*/}
-              {/*</div>*/}
             </GalleryItemTitle>
           </div>
         </Div>

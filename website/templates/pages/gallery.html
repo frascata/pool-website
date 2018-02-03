@@ -20,22 +20,25 @@
                             </span>
                                 <span class="project-detail-gallery-subtitle">{{ page.gallery.project_date }}
                                 <span class="project-detail-gallery-divider"> | </span> {{ page.gallery.project_location }}</span>
-                                <span class="caret"></span>
+                                <span class="collapse-icon">+</span>
                             </a>
                         </div>
 
                         <div class="collapse" id="collapse-{{ page.gallery.id }}">
                             <div class="card card-body project-detail-gallery-content">
 
-                                <blockquote>{{ page.gallery.content|richtext_filters|safe }}</blockquote>
+                                <p>{{ page.gallery.content|richtext_filters|safe }}</p>
 
-                                <div class="project-detail-gallery-phases">
-                                    {% for phase in page.gallery.phase.all %}
-                                        {% if LANGUAGE_CODE == 'it' %}{{ phase.title_it }}{% else %}
-                                            {{ phase.title_en }}{% endif %}
-                                        {% if not forloop.last %}, {% endif %}
-                                    {% endfor %}
-                                </div>
+                                {% if page.gallery.phase.count != 0 %}
+                                    <div class="project-detail-gallery-phases">
+                                        {% trans "fasi:" %}
+                                        {% for phase in page.gallery.phase.all %}
+                                            {% if LANGUAGE_CODE == 'it' %}{{ phase.title_it }}{% else %}
+                                                {{ phase.title_en }}{% endif %}
+                                            {% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
 
                                 {% if page.gallery.partner.count != 0 %}
                                     <div class="project-detail-gallery-partners">

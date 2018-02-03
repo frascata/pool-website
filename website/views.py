@@ -71,7 +71,7 @@ class ApiProjectsView(ListView):
             projects = projects.filter(homepage_visible=True)
 
         category = self.request.GET.get('category')
-        if category and category not in ['null']:
+        if category and category.lower() not in ['null', 'tutti', 'all']:
             projects = projects.filter(category__id__exact=int(category))
 
         response_data = list()

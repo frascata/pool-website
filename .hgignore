@@ -8,3 +8,4 @@ local_settings.py
 
 syntax: regexp
 ^static/
+/deploy/nginx.conf.template

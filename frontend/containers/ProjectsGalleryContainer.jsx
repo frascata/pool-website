@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
 import * as projectActions from '../actions/projectActions';
 import * as categoryActions from '../actions/categoryActions';
 
 import ProjectGallery from '../components/ProjectGallery';
+
 
 @connect(state => ({
   projects: state.projects,
@@ -15,13 +15,12 @@ export default class ProjectsGalleryContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.projectDetailElement = null;
-    this.projectsGalleryElement = null;
-
     this.state = {
       selectedProject: null,
       selectedCategory: null,
     };
+
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   componentDidMount() {
@@ -69,7 +68,8 @@ export default class ProjectsGalleryContainer extends React.Component {
   renderProjects() {
     if (this.props.projects.items !== undefined) {
       return this.props.projects.items.map((project) => {
-        return <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3" key={project.id}
+        return <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3"
+                    key={project.id}
                     onClick={this.openProject.bind(this, project)}>
           <ProjectGallery key={project.id} project={project}/>
         </div>;
@@ -101,13 +101,15 @@ export default class ProjectsGalleryContainer extends React.Component {
     }
   }
 
+  handleSelectChange(event) {
+    this.filterProject(event.target.value || null);
+  }
+
   render() {
     return (
       <div className="row">
         <div className="col-sm-12">
-          <div className="row" ref={(projectDetail) => {
-            this.projectsGalleryElement = projectDetail;
-          }}>
+          <div className="row">
             <div className="col-sm-12">
               <div className="row">
                 <div className="col-sm-12">
