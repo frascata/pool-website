@@ -94,19 +94,19 @@ export default class HomeProjectGallery extends React.Component {
               </div>
             </Gallery>
           </div>
-          <div className="col-xs-4">
+          <div className="col-xs-6">
               {project.title}
           </div>
-          <div className="col-xs-4">
-            <div style={{textAlign: "center"}}>
+          <div className="col-xs-6">
+            <div className="pull-right">
               <a className="project-item-url" href={project.url}>+ info</a>
             </div>
           </div>
-          <div className="col-xs-4">
-            <div className="pull-right">
-              {this.state.currentImageIndex} | {imagesNumber}
-            </div>
-          </div>
+          {/*<div className="col-xs-4">*/}
+            {/*<div className="pull-right">*/}
+              {/*{this.state.currentImageIndex} | {imagesNumber}*/}
+            {/*</div>*/}
+          {/*</div>*/}
         </Div>
       );
     }
