@@ -53,6 +53,57 @@ def set_language(request):
     return response
 
 
+class ApiHomeProjectsView(ListView):
+    model = Gallery
+
+    def get(self, *args, **kwargs):
+
+        projects = self.get_queryset().filter(homepage_visible=True)
+
+        # filters
+        if not settings.DEBUG:
+            projects = projects.filter(status__exact=2)
+
+        current_language = self.request.GET.get('language', settings.LANGUAGE_CODE)
+
+        response_data = list()
+
+        for project in projects:
+            title = None
+            if current_language == 'it':
+                if project.title_it:
+                    title = project.title_it
+            if current_language == 'en':
+                if project.title_en:
+                    title = project.title_en
+
+            images = project.images.get_queryset()
+
+            image = None
+
+            if images.count() > 0:
+                image_description = None
+                if current_language == 'it':
+                    if project.description_it:
+                        image_description = project.description_it
+                if current_language == 'en':
+                    if project.description_en:
+                        image_description = project.description_en
+                image = {
+                    'description': image_description,
+                    'src': images[0].file.url
+                }
+
+            response_data.append({
+                "id": project.id,
+                "title": title,
+                "image": image,
+                "url": project.slug
+            })
+
+        return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
 class ApiProjectsView(ListView):
     model = Gallery
 

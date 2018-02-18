@@ -2,9 +2,9 @@
 #1d1d1b
 */
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 14px;
     color: #777;
 }
 
@@ -408,7 +408,7 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
 .project-detail-gallery-description .project-detail-gallery-title {
     color: #1d1d1b;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .project-detail-gallery-description .project-detail-gallery-subtitle {
@@ -429,13 +429,12 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
 }
 
 .project-detail-gallery-description .project-detail-gallery-content p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .project-detail-gallery-description .project-detail-gallery-content .project-detail-gallery-phases {
     margin: 10px 0 10px 0;
     text-transform: lowercase;
-    /*color: #1d1d1b;*/
 }
 
 .project-detail-gallery-description button {
