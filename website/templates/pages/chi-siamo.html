@@ -59,7 +59,8 @@
         <!-- ILARIA -->
         <div class="about-person">
             <h4>
-                <strong>Ilaria Sangaletti</strong><span class="about-subtitle"> | {% trans "Architetto Paesaggista" %}</span>
+                <strong>Ilaria Sangaletti</strong><span
+                    class="about-subtitle"> | {% trans "Architetto Paesaggista" %}</span>
             </h4>
             <a class="social-icon" href="mailto:ilaria.sangaletti@pool-landscape.it">
                 <i class="fa fa-envelope" aria-hidden="true"></i> ilaria.sangaletti@pool-landscape.it
@@ -77,6 +78,54 @@
             </dl>
         </div>
 
+        <div class="about-collaborators" style="display: none;">
+            <h4>
+                <strong>{% trans "Collaborators" %}</strong>
+            </h4>
+
+            <div class="content"></div>
+        </div>
+
+        <div class="about-partners" style="display: none;">
+            <h4>
+                <strong>{% trans "Partners" %}</strong>
+            </h4>
+
+            <div class="content"></div>
+        </div>
     </div>
 
+    <script async defer>
+      function renderCollaborators(mainNodeClass, collaboratorsData) {
+        if (collaboratorsData && collaboratorsData.length) {
+          var mainContentNode = document.querySelector(mainNodeClass);
+          mainContentNode.style.display = 'block';
+          var contentNode = mainContentNode.querySelector(mainNodeClass + ' .content');
+          var html = '<ul class="list-unstyled">';
+
+          for (var collaborator of collaboratorsData) {
+            html += '<li>' + collaborator.name;
+            if (collaborator.description) {
+              html += ' | ' + collaborator.description;
+            }
+            if (collaborator.url) {
+              html += ' ( <a href="' + collaborator.url + '">' + collaborator.url + '</a> )';
+            }
+            html += '</li>';
+          }
+
+          html += '</ul>';
+          contentNode.insertAdjacentHTML('beforeend', html);
+        }
+      }
+
+      $.get('/api/partners/?language={{ LANGUAGE_CODE }}&type=collaborator', function (data) {
+        renderCollaborators('.about-collaborators', data);
+      });
+
+      $.get('/api/partners/?language={{ LANGUAGE_CODE }}&type=partner', function (data) {
+        renderCollaborators('.about-partners', data);
+        console.log(data)
+      });
+    </script>
 {% endblock %}

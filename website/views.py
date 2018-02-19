@@ -220,7 +220,7 @@ class ApiPartnersView(ListView):
 
     def get(self, *args, **kwargs):
 
-        partners = self.get_queryset()
+        partners = self.get_queryset().filter(visible=True)
 
         current_language = self.request.GET.get('language', settings.LANGUAGE_CODE)
 

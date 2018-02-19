@@ -31,8 +31,8 @@ class Category(models.Model):
 
 
 PARTNER_TYPE_CHOICES = (
-    ('Collaborator', _('Collaborator')),
-    ('Partner', _('Partner')),
+    ('Collaborator', _('Project Collaborator')),
+    ('Partner', _('Project Partner')),
 )
 
 
@@ -42,6 +42,7 @@ class Partner(models.Model):
     """
     name = models.CharField(max_length=256)
     type = models.CharField(max_length=128, choices=PARTNER_TYPE_CHOICES, default=PARTNER_TYPE_CHOICES[0])
+    visible = models.BooleanField(default=False)
     description_it = models.CharField(max_length=128, blank=True, null=True)
     description_en = models.CharField(max_length=128, blank=True, null=True)
     website_url = models.URLField(max_length=256, blank=True, null=True)
@@ -64,6 +65,7 @@ class Phase(models.Model):
     """
     title_it = models.CharField(max_length=500)
     title_en = models.CharField(max_length=500, blank=True, null=True)
+    position = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = _("Project Phase")

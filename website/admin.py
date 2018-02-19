@@ -7,21 +7,21 @@ class CategoryAdmin(ModelAdmin):
     class Meta:
         model = Category
 
-    list_display = ('title_it', 'title_en',)
+    list_display = ('title_it', 'title_en', 'position',)
 
 
 class PhaseAdmin(ModelAdmin):
     class Meta:
         model = Phase
 
-    list_display = ('title_it', 'title_en',)
+    list_display = ('title_it', 'title_en', 'position',)
 
 
 class PartnerAdmin(ModelAdmin):
     class Meta:
         model = Partner
 
-    list_display = ('name', 'type', 'description_it', 'description_en', 'website_url',)
+    list_display = ('name', 'type', 'visible', 'description_it', 'description_en', 'website_url',)
 
 
 # Register your models here.

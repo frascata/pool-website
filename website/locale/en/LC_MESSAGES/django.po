@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-04 12:36+0100\n"
+"POT-Creation-Date: 2018-02-19 20:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,26 +26,22 @@ msgid "Project Categories"
 msgstr ""
 
 #: models.py:34
-msgid "Collaborator"
+msgid "Project Collaborator"
 msgstr ""
 
-#: models.py:35
-msgid "Partner"
-msgstr ""
-
-#: models.py:50
+#: models.py:35 models.py:51
 msgid "Project Partner"
 msgstr ""
 
-#: models.py:51
+#: models.py:52
 msgid "Project Partners"
 msgstr ""
 
-#: models.py:69
+#: models.py:71
 msgid "Project Phase"
 msgstr ""
 
-#: models.py:70
+#: models.py:72
 msgid "Project Phases"
 msgstr ""
 
@@ -55,7 +51,7 @@ msgstr ""
 "This website uses cookies to ensure you get the best experience on our "
 "website."
 
-#: templates/blocks/footer.html:39
+#: templates/blocks/footer.html:40
 msgid "Change"
 msgstr ""
 
@@ -81,98 +77,94 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: templates/index.html:25
-msgid "Other Works"
-msgstr ""
-
 #: templates/pages/chi-siamo.html:16
-msgid "Agronomo"
-msgstr "Agronomist"
-
-#: templates/pages/chi-siamo.html:24
-msgid "EF_2002-2008_about"
-msgstr ""
-"studied Agricultural engineering at University of Florence and specialized "
-"at University of Bologna "
-
-#: templates/pages/chi-siamo.html:26
-msgid "EF_2008_about"
-msgstr ""
-"Masters Degree in Landscape Architecture at University of Florence with "
-"Gabriele Paolinelli"
-
-#: templates/pages/chi-siamo.html:28
-msgid "EF_2008-2015_about"
-msgstr ""
-"agronomist and Project Leader for international landscape architecture "
-"offices in Bologna (Frassinago18 and Studio Silva) and in Milan (LAND). "
-
-#: templates/pages/chi-siamo.html:30
-msgid "EF_2015-2017_about"
-msgstr "agronomist freelance"
-
-#: templates/pages/chi-siamo.html:32 templates/pages/chi-siamo.html:34
-msgid "EF_2017_about"
-msgstr "associate at Pool."
-
-#: templates/pages/chi-siamo.html:33
-msgid "Interessi"
-msgstr ""
-
-#: templates/pages/chi-siamo.html:41
 msgid "Architetto"
 msgstr "Architect"
 
-#: templates/pages/chi-siamo.html:49
+#: templates/pages/chi-siamo.html:24
 msgid "CG_2002-2008_about"
 msgstr ""
 "studied Architecture at Università IUAV of Venezia (Italy) and at EPSEB of "
 "Barcelona (Spain)"
 
-#: templates/pages/chi-siamo.html:51
+#: templates/pages/chi-siamo.html:26
 msgid "CG_2008_about"
 msgstr ""
 "Masters Degree in Architecture at Università IUAV di Venezia with Bernardo "
 "Secchi, Alberto Ferlenga, Agostino Cappelli "
 
-#: templates/pages/chi-siamo.html:53
+#: templates/pages/chi-siamo.html:28
 msgid "CG_2009-2013_about"
 msgstr "project leader in landscape studio LAND, Milan"
 
-#: templates/pages/chi-siamo.html:55
+#: templates/pages/chi-siamo.html:30
 msgid "CG_2013_about"
 msgstr "co-founder of Pool with Annapaola Busnardo"
 
-#: templates/pages/chi-siamo.html:57
+#: templates/pages/chi-siamo.html:32
 msgid "CG_2017_about"
 msgstr ""
 
-#: templates/pages/chi-siamo.html:64
+#: templates/pages/chi-siamo.html:39
+msgid "Agronomo"
+msgstr "Agronomist"
+
+#: templates/pages/chi-siamo.html:47
+msgid "EF_2002-2008_about"
+msgstr ""
+"studied Agricultural engineering at University of Florence and specialized "
+"at University of Bologna "
+
+#: templates/pages/chi-siamo.html:49
+msgid "EF_2008_about"
+msgstr ""
+"Masters Degree in Landscape Architecture at University of Florence with "
+"Gabriele Paolinelli"
+
+#: templates/pages/chi-siamo.html:51
+msgid "EF_2008-2015_about"
+msgstr ""
+"agronomist and Project Leader for international landscape architecture "
+"offices in Bologna (Frassinago18 and Studio Silva) and in Milan (LAND). "
+
+#: templates/pages/chi-siamo.html:53
+msgid "EF_2015-2017_about"
+msgstr "agronomist freelance"
+
+#: templates/pages/chi-siamo.html:55
+msgid "EF_2017_about"
+msgstr "associate at Pool."
+
+#: templates/pages/chi-siamo.html:63
 msgid "Architetto Paesaggista"
 msgstr ""
 
-#: templates/pages/chi-siamo.html:72
+#: templates/pages/chi-siamo.html:71
 msgid "IS_2003-2009_about"
 msgstr ""
 "studied Environmental Architecture at Politecnico of Milan. International "
 "Master at Politecnico of Milan and Bachelor of Landscape Architecture "
 "University of Genova."
 
-#: templates/pages/chi-siamo.html:74
+#: templates/pages/chi-siamo.html:73
 msgid "IS_2007-20016_about"
 msgstr ""
 "Landscape Architect and Project Leader for international landcape "
 "architecture officies."
 
-#: templates/pages/chi-siamo.html:76
+#: templates/pages/chi-siamo.html:75
 msgid "IS_2014-2015_about"
 msgstr ""
 "teaching assistant for the Landscape and Public Space Design course at "
 "Politecnico of Milan."
 
-#: templates/pages/chi-siamo.html:78
+#: templates/pages/chi-siamo.html:77
 msgid "IS_2017_about"
 msgstr "associate at Pool"
+
+#: templates/pages/chi-siamo.html:83
+msgid "Collaborators"
+msgstr ""
 
 #: templates/pages/gallery.html:34
 msgid "fasi:"
