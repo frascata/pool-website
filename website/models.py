@@ -70,7 +70,7 @@ class Phase(models.Model):
     class Meta:
         verbose_name = _("Project Phase")
         verbose_name_plural = _("Project Phases")
-        ordering = ("title_it",)
+        ordering = ("position", "title_it",)
 
     def __str__(self):
         return self.title_it

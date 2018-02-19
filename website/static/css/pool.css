@@ -47,6 +47,9 @@ blockquote {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     color: #1d1d1b;
 }
+b, strong {
+    font-weight: 400;
+}
 
 .btn-pool {
     border-radius: unset;
@@ -146,7 +149,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 .navbar-pool .navbar-nav > .active > a {
     font-weight: 400;
-    /*color: #555;*/
     color: #1d1d1b;
     border-bottom: 1px solid #1d1d1b;
     padding-bottom: 14px;
@@ -527,7 +529,7 @@ fieldset[disabled] .navbar-pool .btn-link:focus {
 
 .dl-pool dt {
     padding-right: 10px;
-    border-right: 1px solid #777;
+    /*border-right: 1px solid #777;*/
     width: 120px;;
 }
 
