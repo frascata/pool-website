@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-19 20:59+0100\n"
+"POT-Creation-Date: 2018-02-27 19:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Project Phases"
 msgstr ""
 
-#: templates/base.html:70
+#: templates/base.html:71
 msgid "Cookie law message"
 msgstr ""
 "This website uses cookies to ensure you get the best experience on our "
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: templates/index.html:5 templates/index.html:6 templates/index.html:9
+#: templates/index.html:5 templates/index.html:9 templates/index.html:12
 #: templates/pages/menus/breadcrumb.html:4
 #: templates/pages/menus/breadcrumb.html:10
 #: templates/pages/menus/dropdown.html:10
@@ -76,6 +76,10 @@ msgstr ""
 #: templates/pages/menus/tree.html:9
 msgid "Home"
 msgstr ""
+
+#: templates/index.html:7
+msgid "Pool lanscape home meta description"
+msgstr "Pool is a multidisciplinary team of professionals working on landscape architecture and planning. Our work focuses mainly on the relationship between project and context, architecture, urbanism and engineering, investigating the role of landscape always in dialogue with society and professionals. The office is involved with national and international projects held for both private and public clients."
 
 #: templates/pages/chi-siamo.html:16
 msgid "Architetto"
@@ -164,6 +168,10 @@ msgstr "associate at Pool"
 
 #: templates/pages/chi-siamo.html:83
 msgid "Collaborators"
+msgstr ""
+
+#: templates/pages/chi-siamo.html:91
+msgid "Partners"
 msgstr ""
 
 #: templates/pages/gallery.html:34

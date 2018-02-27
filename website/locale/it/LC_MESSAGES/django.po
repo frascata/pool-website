@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-19 20:59+0100\n"
+"POT-Creation-Date: 2018-02-27 19:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgstr "Fase di progetto"
 msgid "Project Phases"
 msgstr "Fasi di progetto"
 
-#: templates/base.html:70
+#: templates/base.html:71
 msgid "Cookie law message"
 msgstr ""
 "Questo sito web utilizza i cookie per assicurarti di ottenere la migliore "
@@ -68,7 +68,7 @@ msgstr "Contatti"
 msgid "Blog"
 msgstr ""
 
-#: templates/index.html:5 templates/index.html:6 templates/index.html:9
+#: templates/index.html:5 templates/index.html:9 templates/index.html:12
 #: templates/pages/menus/breadcrumb.html:4
 #: templates/pages/menus/breadcrumb.html:10
 #: templates/pages/menus/dropdown.html:10
@@ -77,6 +77,10 @@ msgstr ""
 #: templates/pages/menus/tree.html:9
 msgid "Home"
 msgstr "Home"
+
+#: templates/index.html:7
+msgid "Pool lanscape home meta description"
+msgstr "Pool landscape è uno studio che opera nel settore dell’architettura del paesaggio e della pianificazione territoriale, formato da un team multidisciplinare di professionisti. Il lavoro si concentra principalmente sulle relazioni tra progetto e contesto, tra architettura, urbanistica e ingegneria, indagando il ruolo del paesaggio in un dialogo attivo e proficuo tra la comunità che esprime una consapevolezza e l’autore che lo interpreta. Le soluzioni proposte nascono in risposta alle tematiche territoriali e alle esigenze dei clienti per creare paesaggi straordinari. Lo studio sviluppa progetti per clienti pubblici e privati in ambito nazionale ed internazionale."
 
 #: templates/pages/chi-siamo.html:16
 msgid "Architetto"
@@ -167,6 +171,12 @@ msgstr "inizia la collaborazione con Pool come associata."
 msgid "Collaborators"
 msgstr "Collaboratori"
 
+#: templates/pages/chi-siamo.html:91
+#, fuzzy
+#| msgid "Partner"
+msgid "Partners"
+msgstr "Collaboratore"
+
 #: templates/pages/gallery.html:34
 msgid "fasi:"
 msgstr "fasi:"
@@ -178,9 +188,6 @@ msgstr "in collaborazione con:"
 #: templates/pages/menus/admin.html:31
 msgid "Add"
 msgstr ""
-
-#~ msgid "Partner"
-#~ msgstr "Collaboratore"
 
 #~ msgid "Other Works"
 #~ msgstr "Altri Lavori"

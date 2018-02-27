@@ -39,6 +39,7 @@ export default class HomeProjectsGallery extends React.Component {
       currentProject: null,
       backgroundImageHeight: null,
       hiddenGallery: null,
+      transition: 'background-image 0.1s ease-out',
     };
 
     this.loadGallery = this.loadGallery.bind(this);
@@ -141,7 +142,7 @@ export default class HomeProjectsGallery extends React.Component {
                 backgroundImage: `url(${project.image.src})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',
-                transition: 'opacity 1s ease-in-out',
+                // transition: this.state.transition,
               }}/>
             </div>
           </Gallery>
