@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 17:58+0100\n"
+"POT-Creation-Date: 2018-02-27 19:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,36 +27,32 @@ msgid "Project Categories"
 msgstr "Categorie"
 
 #: models.py:34
-msgid "Collaborator"
+msgid "Project Collaborator"
 msgstr "Collaboratore"
 
-#: models.py:35
-msgid "Partner"
-msgstr "Collaboratore"
-
-#: models.py:50
+#: models.py:35 models.py:51
 msgid "Project Partner"
-msgstr "Collaboratore"
+msgstr "Partner"
 
-#: models.py:51
+#: models.py:52
 msgid "Project Partners"
 msgstr "Collaboratori"
 
-#: models.py:69
+#: models.py:71
 msgid "Project Phase"
 msgstr "Fase di progetto"
 
-#: models.py:70
+#: models.py:72
 msgid "Project Phases"
 msgstr "Fasi di progetto"
 
-#: templates/base.html:70
+#: templates/base.html:71
 msgid "Cookie law message"
 msgstr ""
 "Questo sito web utilizza i cookie per assicurarti di ottenere la migliore "
 "esperienza sul nostro sito web."
 
-#: templates/blocks/footer.html:39
+#: templates/blocks/footer.html:40
 msgid "Change"
 msgstr "Cambia"
 
@@ -72,7 +68,7 @@ msgstr "Contatti"
 msgid "Blog"
 msgstr ""
 
-#: templates/index.html:5 templates/index.html:6 templates/index.html:9
+#: templates/index.html:5 templates/index.html:9 templates/index.html:12
 #: templates/pages/menus/breadcrumb.html:4
 #: templates/pages/menus/breadcrumb.html:10
 #: templates/pages/menus/dropdown.html:10
@@ -82,80 +78,72 @@ msgstr ""
 msgid "Home"
 msgstr "Home"
 
-#: templates/index.html:25
-msgid "Other Works"
-msgstr "Altri Lavori"
+#: templates/index.html:7
+msgid "Pool lanscape home meta description"
+msgstr "Pool landscape è uno studio che opera nel settore dell’architettura del paesaggio e della pianificazione territoriale, formato da un team multidisciplinare di professionisti. Il lavoro si concentra principalmente sulle relazioni tra progetto e contesto, tra architettura, urbanistica e ingegneria, indagando il ruolo del paesaggio in un dialogo attivo e proficuo tra la comunità che esprime una consapevolezza e l’autore che lo interpreta. Le soluzioni proposte nascono in risposta alle tematiche territoriali e alle esigenze dei clienti per creare paesaggi straordinari. Lo studio sviluppa progetti per clienti pubblici e privati in ambito nazionale ed internazionale."
 
 #: templates/pages/chi-siamo.html:16
-msgid "Agronomo"
-msgstr "Agronomo"
-
-#: templates/pages/chi-siamo.html:24
-msgid "EF_1983_about"
-msgstr "nasce ad Arezzo  e cresce nel vivaio di famiglia"
-
-#: templates/pages/chi-siamo.html:26
-msgid "EF_2002-2008_about"
-msgstr ""
-"studia alla Facoltà di Agraria di Firenze e si specializza presso la Facoltà "
-"di Agraria di Bologna"
-
-#: templates/pages/chi-siamo.html:28
-msgid "EF_2008_about"
-msgstr ""
-"si laurea con una tesi in Progettazione paesaggistica con Gabrile Paolinelli"
-
-#: templates/pages/chi-siamo.html:30
-msgid "EF_2008-2015_about"
-msgstr ""
-"lavora presso studi di architettura del paesaggio a Bologna - StudioSilva, "
-"Frassinago 18 - e a Milano presso lo Studio LAND come Project manager"
-
-#: templates/pages/chi-siamo.html:32
-msgid "EF_2015-2017_about"
-msgstr "svolge libera professione"
-
-#: templates/pages/chi-siamo.html:34 templates/pages/chi-siamo.html:36
-msgid "EF_2017_about"
-msgstr "inizia la collaborazione con Pool come associata."
-
-#: templates/pages/chi-siamo.html:35
-msgid "Interessi"
-msgstr "Interessi"
-
-#: templates/pages/chi-siamo.html:43
 msgid "Architetto"
 msgstr "Architetto"
 
-#: templates/pages/chi-siamo.html:51
+#: templates/pages/chi-siamo.html:24
 msgid "CG_2002-2008_about"
 msgstr ""
 "studia Architettura presso l'Università IUAV di Venezia e presso l'EPSEB di "
 "Barcellona (Spagna)"
 
-#: templates/pages/chi-siamo.html:53
+#: templates/pages/chi-siamo.html:26
 msgid "CG_2008_about"
 msgstr ""
 "si laurea in Architettura per la città all' Università IUAV di Venezia con "
 "Bernardo Secchi, Alberto Ferlenga, Agostino Cappelli "
 
-#: templates/pages/chi-siamo.html:55
+#: templates/pages/chi-siamo.html:28
 msgid "CG_2009-2013_about"
 msgstr "lavora presso lo studio di paesaggio LAND a Milano"
 
-#: templates/pages/chi-siamo.html:57
+#: templates/pages/chi-siamo.html:30
 msgid "CG_2013_about"
 msgstr "fonda Pool con Annapaola Busnardo"
 
-#: templates/pages/chi-siamo.html:59
+#: templates/pages/chi-siamo.html:32
 msgid "CG_2017_about"
 msgstr "diventa socia di Pool con Ilaria Sangaletti e Elisa Frappi"
 
-#: templates/pages/chi-siamo.html:66
+#: templates/pages/chi-siamo.html:39
+msgid "Agronomo"
+msgstr "Agronomo"
+
+#: templates/pages/chi-siamo.html:47
+msgid "EF_2002-2008_about"
+msgstr ""
+"studia alla Facoltà di Agraria di Firenze e si specializza presso la Facoltà "
+"di Agraria di Bologna"
+
+#: templates/pages/chi-siamo.html:49
+msgid "EF_2008_about"
+msgstr ""
+"si laurea con una tesi in Progettazione paesaggistica con Gabrile Paolinelli"
+
+#: templates/pages/chi-siamo.html:51
+msgid "EF_2008-2015_about"
+msgstr ""
+"lavora presso studi di architettura del paesaggio a Bologna - StudioSilva, "
+"Frassinago 18 - e a Milano presso lo Studio LAND come Project manager"
+
+#: templates/pages/chi-siamo.html:53
+msgid "EF_2015-2017_about"
+msgstr "svolge libera professione"
+
+#: templates/pages/chi-siamo.html:55
+msgid "EF_2017_about"
+msgstr "inizia la collaborazione con Pool come associata."
+
+#: templates/pages/chi-siamo.html:63
 msgid "Architetto Paesaggista"
 msgstr "Architetto Paesaggista"
 
-#: templates/pages/chi-siamo.html:74
+#: templates/pages/chi-siamo.html:71
 msgid "IS_2003-2009_about"
 msgstr ""
 "studia Architettura Ambientale presso il Politecnico di Milano e si "
@@ -163,21 +151,31 @@ msgstr ""
 "Specialistica in Architettura del Paesaggio alla Facoltà di Architettura di "
 "Genova."
 
-#: templates/pages/chi-siamo.html:76
+#: templates/pages/chi-siamo.html:73
 msgid "IS_2007-20016_about"
 msgstr ""
 "collabora con studi di Architettura del Paesaggio nazionali e internazionali "
 "come progettista e project manager."
 
-#: templates/pages/chi-siamo.html:78
+#: templates/pages/chi-siamo.html:75
 msgid "IS_2014-2015_about"
 msgstr ""
 "assistente alla didattica per il corso di Landscape and Public Space Design "
 "al Politecnico di Milano."
 
-#: templates/pages/chi-siamo.html:80
+#: templates/pages/chi-siamo.html:77
 msgid "IS_2017_about"
 msgstr "inizia la collaborazione con Pool come associata."
+
+#: templates/pages/chi-siamo.html:83
+msgid "Collaborators"
+msgstr "Collaboratori"
+
+#: templates/pages/chi-siamo.html:91
+#, fuzzy
+#| msgid "Partner"
+msgid "Partners"
+msgstr "Collaboratore"
 
 #: templates/pages/gallery.html:34
 msgid "fasi:"
@@ -190,3 +188,12 @@ msgstr "in collaborazione con:"
 #: templates/pages/menus/admin.html:31
 msgid "Add"
 msgstr ""
+
+#~ msgid "Other Works"
+#~ msgstr "Altri Lavori"
+
+#~ msgid "Interessi"
+#~ msgstr "Interessi"
+
+#~ msgid "EF_1983_about"
+#~ msgstr "nasce ad Arezzo  e cresce nel vivaio di famiglia"

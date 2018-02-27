@@ -658,7 +658,7 @@ def deploy():
     with project():
         manage("collectstatic -v 0 --noinput")
         # MIGRATION handled manually
-    #     manage("migrate --noinput")
+        # manage("migrate website --noinput")
 
     # SERVICES
     for name in get_templates():

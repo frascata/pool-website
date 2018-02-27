@@ -35,6 +35,7 @@
                                             value="{{ language.code }}">
                                         {{ language.code }}
                                     </button>
+                                    {% if not forloop.last %} | {% endif %}
                                 {% endfor %}
                                 <input type="submit" class="btn btn-default" value="{% trans "Change" %}"/>
                             </form>

@@ -10,33 +10,6 @@
             {{ page.richtextpage.content|richtext_filters|safe }}
         {% endeditable %}
 
-        <!-- ELISA -->
-        <div class="about-person">
-            <h4>
-                <strong>Elisa Frappi</strong><span class="about-subtitle"> | {% trans "Agronomo" %}</span>
-            </h4>
-            <a class="social-icon" href="mailto:elisa.frappi@pool-landscape.it">
-                <i class="fa fa-envelope" aria-hidden="true"></i> elisa.frappi@pool-landscape.it
-            </a>
-
-            <dl class="dl-horizontal dl-pool">
-                <dt>1983</dt>
-                <dd>{% trans "EF_1983_about" %}</dd>
-                <dt>2002-2008</dt>
-                <dd>{% trans "EF_2002-2008_about" %}</dd>
-                <dt>2008</dt>
-                <dd>{% trans "EF_2008_about" %}</dd>
-                <dt>2008-2015</dt>
-                <dd>{% trans "EF_2008-2015_about" %}</dd>
-                <dt>2015-2017</dt>
-                <dd>{% trans "EF_2015-2017_about" %}</dd>
-                <dt>2017</dt>
-                <dd>{% trans "EF_2017_about" %}</dd>
-                <dt>{% trans "Interessi" %}</dt>
-                <dd>{% trans "EF_2017_about" %}</dd>
-            </dl>
-        </div>
-
         <!-- CATERINA -->
         <div class="about-person">
             <h4>
@@ -60,10 +33,34 @@
             </dl>
         </div>
 
+        <!-- ELISA -->
+        <div class="about-person">
+            <h4>
+                <strong>Elisa Frappi</strong><span class="about-subtitle"> | {% trans "Agronomo" %}</span>
+            </h4>
+            <a class="social-icon" href="mailto:elisa.frappi@pool-landscape.it">
+                <i class="fa fa-envelope" aria-hidden="true"></i> elisa.frappi@pool-landscape.it
+            </a>
+
+            <dl class="dl-horizontal dl-pool">
+                <dt>2002-2008</dt>
+                <dd>{% trans "EF_2002-2008_about" %}</dd>
+                <dt>2008</dt>
+                <dd>{% trans "EF_2008_about" %}</dd>
+                <dt>2008-2015</dt>
+                <dd>{% trans "EF_2008-2015_about" %}</dd>
+                <dt>2015-2017</dt>
+                <dd>{% trans "EF_2015-2017_about" %}</dd>
+                <dt>2017</dt>
+                <dd>{% trans "EF_2017_about" %}</dd>
+            </dl>
+        </div>
+
         <!-- ILARIA -->
         <div class="about-person">
             <h4>
-                <strong>Ilaria Sangaletti</strong><span class="about-subtitle"> | {% trans "Architetto Paesaggista" %}</span>
+                <strong>Ilaria Sangaletti</strong><span
+                    class="about-subtitle"> | {% trans "Architetto Paesaggista" %}</span>
             </h4>
             <a class="social-icon" href="mailto:ilaria.sangaletti@pool-landscape.it">
                 <i class="fa fa-envelope" aria-hidden="true"></i> ilaria.sangaletti@pool-landscape.it
@@ -72,7 +69,7 @@
             <dl class="dl-horizontal dl-pool">
                 <dt>2003-2009</dt>
                 <dd>{% trans "IS_2003-2009_about" %}</dd>
-                <dt>2007-20016</dt>
+                <dt>2007-2016</dt>
                 <dd>{% trans "IS_2007-20016_about" %}</dd>
                 <dt>2014-2015</dt>
                 <dd>{% trans "IS_2014-2015_about" %}</dd>
@@ -81,6 +78,54 @@
             </dl>
         </div>
 
+        <div class="about-collaborators" style="display: none;">
+            <h4>
+                <strong>{% trans "Collaborators" %}</strong>
+            </h4>
+
+            <div class="content"></div>
+        </div>
+
+        <div class="about-partners" style="display: none;">
+            <h4>
+                <strong>{% trans "Partners" %}</strong>
+            </h4>
+
+            <div class="content"></div>
+        </div>
     </div>
 
+    <script async defer>
+      function renderCollaborators(mainNodeClass, collaboratorsData) {
+        if (collaboratorsData && collaboratorsData.length) {
+          var mainContentNode = document.querySelector(mainNodeClass);
+          mainContentNode.style.display = 'block';
+          var contentNode = mainContentNode.querySelector(mainNodeClass + ' .content');
+          var html = '<ul class="list-unstyled">';
+
+          for (var collaborator of collaboratorsData) {
+            html += '<li>' + collaborator.name;
+            if (collaborator.description) {
+              html += ' | ' + collaborator.description;
+            }
+            if (collaborator.url) {
+              html += ' ( <a href="' + collaborator.url + '">' + collaborator.url + '</a> )';
+            }
+            html += '</li>';
+          }
+
+          html += '</ul>';
+          contentNode.insertAdjacentHTML('beforeend', html);
+        }
+      }
+
+      $.get('/api/partners/?language={{ LANGUAGE_CODE }}&type=collaborator', function (data) {
+        renderCollaborators('.about-collaborators', data);
+      });
+
+      $.get('/api/partners/?language={{ LANGUAGE_CODE }}&type=partner', function (data) {
+        renderCollaborators('.about-partners', data);
+        console.log(data)
+      });
+    </script>
 {% endblock %}

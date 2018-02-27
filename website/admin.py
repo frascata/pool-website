@@ -7,17 +7,24 @@ class CategoryAdmin(ModelAdmin):
     class Meta:
         model = Category
 
-    list_display = ('title_it', 'title_en',)
+    list_display = ('title_it', 'title_en', 'position',)
 
 
 class PhaseAdmin(ModelAdmin):
     class Meta:
         model = Phase
 
-    list_display = ('title_it', 'title_en',)
+    list_display = ('title_it', 'title_en', 'position',)
+
+
+class PartnerAdmin(ModelAdmin):
+    class Meta:
+        model = Partner
+
+    list_display = ('name', 'type', 'visible', 'description_it', 'description_en', 'website_url',)
 
 
 # Register your models here.
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Phase, PhaseAdmin)
-admin.site.register(Partner)
+admin.site.register(Partner, PartnerAdmin)

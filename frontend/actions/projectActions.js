@@ -36,7 +36,7 @@ export function filterProjectsByCategory(categoryId) {
 
 export function fetchHomeProjects() {
   return function (dispatch) {
-    let url = `${process.env.BASE_API_URL}projects/?home=1&language=${getLanguage()}`;
+    let url = `${process.env.BASE_API_URL}home-projects/?language=${getLanguage()}`;
     dispatch({type: FETCH_REPOS});
     return request(
       url, {},

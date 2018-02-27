@@ -7,7 +7,7 @@ from django.contrib import admin
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
-from website.views import ApiProjectsView, ApiCategoriesView, set_language, ApiPartnersView
+from website.views import ApiProjectsView, ApiCategoriesView, set_language, ApiPartnersView, ApiHomeProjectsView
 
 admin.autodiscover()
 
@@ -72,6 +72,7 @@ urlpatterns += [
     # ``mezzanine.urls`` INCLUDES A *CATCH ALL* PATTERN
     # FOR PAGES, SO URLPATTERNS ADDED BELOW ``mezzanine.urls``
     # WILL NEVER BE MATCHED!
+    url("^api/home-projects/$", ApiHomeProjectsView.as_view()),
     url("^api/projects/$", ApiProjectsView.as_view()),
     url("^api/categories/$", ApiCategoriesView.as_view()),
     url("^api/partners/$", ApiPartnersView.as_view()),

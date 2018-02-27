@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as projectActions from '../actions/projectActions';
 
 import HomeProjectGallery from '../components/HomeProjectGallery';
+import HomeProjectsGallery from '../components/HomeProjectsGallery';
 
 @connect(state => ({
   projects: state.projects,
@@ -27,11 +28,7 @@ export default class HomeGalleryContainer extends React.Component {
 
   renderProjects() {
     if (this.props.projects.items !== undefined) {
-      return this.props.projects.items.map((project) => {
-        return <div className="col-md-12" key={project.id} >
-          <HomeProjectGallery project={project}/>
-        </div>;
-      });
+      return <HomeProjectsGallery projects={this.props.projects.items}/>;
     }
   }
 
@@ -44,9 +41,7 @@ export default class HomeGalleryContainer extends React.Component {
     return (
       <div className="row">
         <div className="col-sm-12">
-          <div className="row">
-            {this.renderProjects()}
-          </div>
+          {this.renderProjects()}
         </div>
       </div>
     );
