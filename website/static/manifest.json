@@ -3,17 +3,17 @@
     "short_name": "pool",
     "icons": [
         {
-            "src": "https://pool.vivaifrappi.com/static/img/android-chrome-192x192.png",
+            "src": "https://www.pool-landscape.it/static/img/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "https://pool.vivaifrappi.com/static/img/android-chrome-512x512.png",
+            "src": "https://www.pool-landscape.it/static/img/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "start_url": "https://pool.vivaifrappi.com/",
+    "start_url": "https://www.pool-landscape.it/",
     "theme_color": "#ffffff",
     "orientation": "portrait",
     "background_color": "#ffffff",

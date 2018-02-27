@@ -1,34 +1,12 @@
-upstream %(proj_name)s {
-    server unix:%(proj_path)s/gunicorn.sock fail_timeout=0;
-}
-
-# Redirect all non-encrypted to encrypted
-server {
-    # server_name %(domains_nginx)s;
-    listen 80;
-    rewrite ^(.*) https://%(domains_nginx)s$request_uri permanent;
+upstream pool {
+    server unix:/home/pool/mezzanine/pool/gunicorn.sock fail_timeout=0;
 }
 
 server {
-    # server_name %(domains_nginx)s;
-    listen 443 ssl;
+    server_name www.pool-landscape.it;
     client_max_body_size 10M;
     keepalive_timeout    15;
-    error_log /home/%(user)s/logs/%(proj_name)s_error_nginx.log info;
-
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/pool.vivaifrappi.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/pool.vivaifrappi.com/privkey.pem; # managed by Certbot
-    ssl_session_cache    shared:SSL:10m;
-    ssl_session_timeout  10m;
-    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-G$;
-    ssl_prefer_server_ciphers on;
-    ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
-
-    # Deny illegal Host headers
-    # if ($host !~* ^(%(domains_regex)s)$) {
-    #     return 444;
-    # }
+    error_log /home/pool/logs/pool_error_nginx.log info;
 
     gzip on;
     gzip_disable "msie6";
@@ -47,36 +25,47 @@ server {
         proxy_set_header    X-Forwarded-For         $proxy_add_x_forwarded_for;
         proxy_set_header    X-Forwarded-Protocol    $scheme;
         # proxy_set_header    X-Forwarded-Proto    $scheme;
-        proxy_pass          http://%(proj_name)s;
+        proxy_pass          http://pool;
     }
 
     location /static/ {
-        root            %(proj_path)s;
+        root            /home/pool/mezzanine/pool;
         access_log      off;
         log_not_found   off;
         expires 30d;
     }
 
     location /robots.txt {
-        root            %(proj_path)s/static;
+        root            /home/pool/mezzanine/pool/static;
         access_log      off;
         log_not_found   off;
     }
 
     location /favicon.ico {
-        root            %(proj_path)s/static/img;
+        root            /home/pool/mezzanine/pool/static/img;
         access_log      off;
         log_not_found   off;
     }
 
     location /manifest.json {
-        root            %(proj_path)s/static;
+        root            /home/pool/mezzanine/pool/static;
         access_log      off;
         log_not_found   off;
     }
 
-    # Redirect non-https traffic to https
-    # if ($scheme != "https") {
-    #     return 301 https://$host$request_uri;
-    # }
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/www.pool-landscape.it/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/www.pool-landscape.it/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+server {
+    if ($host = www.pool-landscape.it) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    listen 80;
+    server_name www.pool-landscape.it;
+    return 404; # managed by Certbot
 }

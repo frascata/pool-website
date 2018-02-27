@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import { LazyLoadImage } from './LazyLoadImage';
 import styled from 'styled-components';
 import ProjectGallery from './ProjectGallery';
@@ -18,6 +19,7 @@ const GalleryFooter = styled.div`
   
   .nav-gallery {
     padding-right: 2px;
+    color: #ccc;
   }
   
   .nav-gallery.active {
@@ -36,19 +38,18 @@ export default class HomeProjectsGallery extends React.Component {
       currentImageIndex: 1,
       currentProject: null,
       backgroundImageHeight: null,
+      hiddenGallery: null,
     };
 
-    // this.loadGallery = this.loadGallery.bind(this);
-    // this.setActiveImage = this.setActiveImage.bind(this);
+    this.loadGallery = this.loadGallery.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.openNextProject = this.openNextProject.bind(this);
-    // this.openProject = this.openProject.bind(this);
   }
 
   componentDidMount() {
-    // let intervalId = setInterval(this.loadGallery, 1000);
+    let intervalId = setInterval(this.loadGallery, 1000);
     // store intervalId in the state so it can be accessed later:
-    // this.setState({intervalId: intervalId});
+    this.setState({intervalId: intervalId});
 
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
@@ -61,7 +62,7 @@ export default class HomeProjectsGallery extends React.Component {
 
   componentWillUnmount() {
     // use intervalId from the state to clear the interval
-    // clearInterval(this.state.intervalId);
+    clearInterval(this.state.intervalId);
 
     window.removeEventListener('resize', this.handleResize);
   }
@@ -76,36 +77,21 @@ export default class HomeProjectsGallery extends React.Component {
 
     let backgroundImageHeight = windowHeight - HEADER_HEIGHT -
       PROJECT_TITLE_HEIGHT - FOOTER_HEIGHT;
-    console.log(backgroundImageHeight);
 
     this.setState({backgroundImageHeight});
   }
 
-  // loadGallery() {
-  //   let htmlGallery = this.props.projects.images.slice(1,
-  //     this.props.project.images.length).map((image, index) => {
-  //     return <img key={index} className="img-responsive" src={image.src}
-  //                 alt={image.title}/>;
-  //   });
-  //   this.setState({imgGallery: htmlGallery});
-  // }
+  loadGallery() {
+    const {projects} = this.props;
+    const gallery = projects.map((project) => {
+      return <img key={project.id} style={{display: 'none'}}
+                  src={project.image.src}/>;
+    });
+    const hiddenGallery = ReactDOMServer.renderToString(<div>{gallery}</div>);
+    this.setState({hiddenGallery: hiddenGallery});
 
-  // setActiveImage() {
-  //   let active = this.imgGalleryElement.getElementsByClassName('active');
-  //
-  //   if (active[0].nextElementSibling) {
-  //     active[0].nextElementSibling.className = 'img-responsive active';
-  //     active[0].className = 'img-responsive';
-  //   } else {
-  //     active[0].className = 'img-responsive';
-  //     this.imgGalleryElement.children[0].className = 'img-responsive active';
-  //   }
-  //
-  //   for (let i = 0; i < this.imgGalleryElement.children.length; i++) {
-  //     if (this.imgGalleryElement.children[i].classList.contains('active'))
-  //       this.setState({currentImageIndex: i + 1});
-  //   }
-  // }
+    clearInterval(this.state.intervalId);
+  }
 
   openProject(projectId) {
     const {projects} = this.props;
@@ -115,9 +101,10 @@ export default class HomeProjectsGallery extends React.Component {
 
   openNextProject() {
     const {projects} = this.props;
-    let nextProjectIndex = projects.findIndex((project) => project.id === this.state.currentProject.id) + 1;
+    let nextProjectIndex = projects.findIndex(
+      (project) => project.id === this.state.currentProject.id) + 1;
     let currentProject;
-    if (nextProjectIndex > projects.length-1) {
+    if (nextProjectIndex > projects.length - 1) {
       currentProject = projects[0];
     } else {
       currentProject = projects[nextProjectIndex];
@@ -128,8 +115,10 @@ export default class HomeProjectsGallery extends React.Component {
   renderGalleryNavigation() {
     const {projects} = this.props;
     return projects.map((project) => {
-      return <a className={this.state.currentProject &&
-      this.state.currentProject.id === project.id ? 'nav-gallery active' : 'nav-gallery'}
+      return <a key={project.id} className={this.state.currentProject &&
+      this.state.currentProject.id === project.id
+        ? 'nav-gallery active'
+        : 'nav-gallery'}
                 onClick={this.openProject.bind(this, project.id)}>
         <i className="fa fa-circle-o"/>
       </a>;
@@ -138,7 +127,7 @@ export default class HomeProjectsGallery extends React.Component {
 
   render() {
     const {projects} = this.props;
-    // const images = project.images;
+
     if (projects && projects.length > 0 && this.state.currentProject) {
       const project = this.state.currentProject;
 
@@ -152,7 +141,7 @@ export default class HomeProjectsGallery extends React.Component {
                 backgroundImage: `url(${project.image.src})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',
-                transition: 'opacity 1s ease-in-out'
+                transition: 'opacity 1s ease-in-out',
               }}/>
             </div>
           </Gallery>
@@ -167,6 +156,9 @@ export default class HomeProjectsGallery extends React.Component {
               </div>
             </div>
           </GalleryFooter>
+          <div dangerouslySetInnerHTML={{
+            __html: this.state.hiddenGallery,
+          }}/>
         </Div>
       );
     }

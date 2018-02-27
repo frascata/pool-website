@@ -29,11 +29,6 @@ export default class HomeGalleryContainer extends React.Component {
   renderProjects() {
     if (this.props.projects.items !== undefined) {
       return <HomeProjectsGallery projects={this.props.projects.items}/>;
-      // return this.props.projects.items.map((project) => {
-      //   return <div className="col-md-12" key={project.id} >
-      //     <HomeProjectGallery project={project}/>
-      //   </div>;
-      // });
     }
   }
 
