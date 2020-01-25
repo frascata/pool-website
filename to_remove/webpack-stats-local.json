@@ -1,0 +1,27 @@
+{
+  "status": "done",
+  "chunks": {
+    "HomeGallery": [
+      {
+        "name": "HomeGallery-940c8dfd12f5d8fe8183.js",
+        "publicPath": "http://127.0.0.1:3000/assets/bundles/HomeGallery-940c8dfd12f5d8fe8183.js",
+        "path": "/Users/franci/Projects/pool/website/static/bundles/local/HomeGallery-940c8dfd12f5d8fe8183.js"
+      }
+    ],
+    "ProjectsGallery": [
+      {
+        "name": "ProjectsGallery-940c8dfd12f5d8fe8183.js",
+        "publicPath": "http://127.0.0.1:3000/assets/bundles/ProjectsGallery-940c8dfd12f5d8fe8183.js",
+        "path": "/Users/franci/Projects/pool/website/static/bundles/local/ProjectsGallery-940c8dfd12f5d8fe8183.js"
+      }
+    ],
+    "vendors": [
+      {
+        "name": "vendors.js",
+        "publicPath": "http://127.0.0.1:3000/assets/bundles/vendors.js",
+        "path": "/Users/franci/Projects/pool/website/static/bundles/local/vendors.js"
+      }
+    ]
+  },
+  "publicPath": "http://127.0.0.1:3000/assets/bundles/"
+}

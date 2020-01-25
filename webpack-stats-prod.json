@@ -1,0 +1,23 @@
+{
+  "status": "done",
+  "chunks": {
+    "HomeGallery": [
+      {
+        "name": "HomeGallery-65365e274117063b191a.js",
+        "path": "/Users/franci/Projects/pool/static/bundles/prod/HomeGallery-65365e274117063b191a.js"
+      }
+    ],
+    "ProjectsGallery": [
+      {
+        "name": "ProjectsGallery-65365e274117063b191a.js",
+        "path": "/Users/franci/Projects/pool/static/bundles/prod/ProjectsGallery-65365e274117063b191a.js"
+      }
+    ],
+    "vendors": [
+      {
+        "name": "vendors-65365e274117063b191a.js",
+        "path": "/Users/franci/Projects/pool/static/bundles/prod/vendors-65365e274117063b191a.js"
+      }
+    ]
+  }
+}
