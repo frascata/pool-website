@@ -588,10 +588,6 @@ def webpack():
     """
     with cd(env.proj_path):
         run('pwd')
-        run('rm -rf static/bundles/local/')
-        run('rm -rf static/bundles/prod/')
-        run('rm -rf website/static/bundles/prod/')
-        run('./node_modules/webpack/bin/webpack.js --config webpack.prod.config.js --progress --colors')
 
 
 @task

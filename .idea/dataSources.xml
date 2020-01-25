@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="pool@localhost" uuid="b9945249-caa4-4be6-893d-3269bfe8f8cc">
+    <data-source source="LOCAL" name="pool@127.0.0.1" uuid="b9945249-caa4-4be6-893d-3269bfe8f8cc">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
@@ -10,11 +10,11 @@
         <property name="ApplicationName" value="DataGrip" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="pool LIVE" uuid="c6ed30f5-fdce-4bfa-9928-919a0a958e92">
+    <data-source source="LOCAL" name="pool@LIVE" uuid="c6ed30f5-fdce-4bfa-9928-919a0a958e92">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/pool</jdbc-url>
+      <jdbc-url>jdbc:postgresql://78.47.163.72:5432/pool</jdbc-url>
     </data-source>
   </component>
 </project>

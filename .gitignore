@@ -6,3 +6,7 @@
 local_settings.py
 /static
 /deploy/nginx.conf.template
+/webpack-stats-local.json
+/webpack-stats-prod.json
+.idea
+
