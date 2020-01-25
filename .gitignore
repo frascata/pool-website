@@ -8,3 +8,5 @@ local_settings.py
 /deploy/nginx.conf.template
 /webpack-stats-local.json
 /webpack-stats-prod.json
+.idea
+
