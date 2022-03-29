@@ -23,7 +23,7 @@ idna==2.8
 ipaddress==1.0.23
 Mezzanine==4.2.3
 oauthlib==3.1.0
-paramiko==2.7.1
+paramiko==2.10.1
 Pillow==5.0.0
 psycopg2==2.7.3.2
 pyasn1==0.4.8
